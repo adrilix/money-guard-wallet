@@ -1,11 +1,14 @@
-import React from 'react'
+import ModalAddTransaction from 'components/ModalAddTransaction/ModalAddTransaction';
+
+import React from 'react';
 
 function App() {
   return (
-    <div>
-      
+     <div>
+       {/* Только для проверки модального окна */}
+      <ModalAddTransaction />
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
