@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Money-guard-wallet/static/css/main.b5320759.css",
-    "main.js": "/Money-guard-wallet/static/js/main.58bfc715.js",
+    "main.js": "/Money-guard-wallet/static/js/main.e80b1d42.js",
     "index.html": "/Money-guard-wallet/index.html",
     "main.b5320759.css.map": "/Money-guard-wallet/static/css/main.b5320759.css.map",
-    "main.58bfc715.js.map": "/Money-guard-wallet/static/js/main.58bfc715.js.map"
+    "main.e80b1d42.js.map": "/Money-guard-wallet/static/js/main.e80b1d42.js.map"
   },
   "entrypoints": [
     "static/css/main.b5320759.css",
-    "static/js/main.58bfc715.js"
+    "static/js/main.e80b1d42.js"
   ]
 }
