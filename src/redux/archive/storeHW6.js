@@ -1,5 +1,4 @@
-// import { userReducer } from "./userReducers/userSlice";
-// import { contactsReducer } from "./contactsReducers/contactsSlice";
+// import { phonebookReducer } from "./phonebookReducer";
 // import { configureStore } from "@reduxjs/toolkit";
 
 // import {
@@ -14,16 +13,15 @@
 // } from 'redux-persist';
 // import storage from 'redux-persist/lib/storage';
 
-// const userPersistConfig = {
-//   key: 'user',
+// const phonebookPersistConfig = {
+//   key: 'phonebook',
 //   storage,
-//   whitelist: ['token']
+//   whitelist: ['contacts']
 // }
 
 // export const store = configureStore({
 //   reducer: {
-//     user: persistReducer (userPersistConfig, userReducer),
-//     phonebook: contactsReducer,
+//     phonebook: persistReducer(phonebookPersistConfig, phonebookReducer),
 // },
 
 // middleware: (getDefaultMiddleware) =>
