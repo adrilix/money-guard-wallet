@@ -1,4 +1,4 @@
-import { $instance } from "./apiBaseUrl";
+import { $instance } from "../archive/apiBaseUrl";
 
 export const setToken = (token) => {
     $instance.defaults.headers.Authorization = `Bearer ${token}`;
