@@ -1,4 +1,4 @@
-import { $instance } from "./apiBaseUrl";
+import { $instance } from "../archive/apiBaseUrl";
 
 export const getContactsRequest = async () => {
         const {data} = await $instance.get('/contacts');

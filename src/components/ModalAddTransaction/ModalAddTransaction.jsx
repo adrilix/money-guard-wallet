@@ -1,6 +1,6 @@
 import React from 'react'
 
-function App() {
+function ModalAddTransaction() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function App() {
   )
 }
 
-export default App
+export default ModalAddTransaction
