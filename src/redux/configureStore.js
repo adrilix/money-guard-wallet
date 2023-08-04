@@ -1,37 +1,48 @@
-
+import storage from 'redux-persist/lib/storage';
+import { authReducer } from './registrationReducer/registrationSlice';
+import { transactionsReducer } from './transactionsReduser/transactionsSlice';
 
 import { configureStore } from '@reduxjs/toolkit';
 import {
-  persistStore,
-  persistReducer,
-  FLUSH,
-  REHYDRATE,
-  PAUSE,
-  PERSIST,
-  PURGE,
-  REGISTER,
+    persistStore,
+    persistReducer,
+    FLUSH,
+    REHYDRATE,
+    PAUSE,
+    PERSIST,
+    PURGE,
+    REGISTER,
 } from 'redux-persist';
-import storage from 'redux-persist/lib/storage';
-import { authReducer } from './registrationReducer/registrationSlice';
+import { currencyReducer } from './currencyRedusers/currencySlice';
+
+
 
 const authPersistConfig = {
-  key: 'user',
-  storage,
-  whitelist: ['token']
+    key: 'user',
+    storage,
+    whitelist: ['token']
+}
+
+const currencyPersistConfig ={
+    key: 'currency',
+    storage,
+    whitelist: ['dataTime']
 }
 
 export const store = configureStore({
-  reducer: {
-    auth: persistReducer (authPersistConfig, authReducer),
-    // phonebook: contactsReducer,
-},
+    reducer: {
+        auth: persistReducer(authPersistConfig, authReducer),
+        transactions: transactionsReducer,
+        currency: persistReducer(currencyPersistConfig, currencyReducer),
 
-middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware({
-      serializableCheck: {
-        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-      },
-    }),
+    },
+
+    middleware: (getDefaultMiddleware) =>
+        getDefaultMiddleware({
+            serializableCheck: {
+                ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+            },
+        }),
 });
 
 export const persistor = persistStore(store);

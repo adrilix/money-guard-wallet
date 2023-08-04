@@ -1,6 +1,6 @@
 import {createAsyncThunk} from "@reduxjs/toolkit"
 import { logInRequest, logOutRequest, registerRequest, setToken } from "services/api/authControlerApi";
-import { getUsersCurrentDataRequest } from "services/api/usersCurrentApi";
+import { getUsersCurrentDataRequest } from "services/api/usersCurrentControllerApi";
 
 
 export const registerThunk = createAsyncThunk ("auth/registerThunk",

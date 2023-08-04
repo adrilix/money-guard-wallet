@@ -1,13 +1,22 @@
 import { createAsyncThunk } from "@reduxjs/toolkit"
 import { getTransactionCategoriesRequest } from "services/api/transactionCategoriesApi";
-import { addTransactionsRequest, deleteTransactionsRequest, getTransactionsRequest, patchTransactionsRequest } from "services/api/transactionsApi";
+import { addTransactionsRequest, deleteTransactionsRequest, getTransactionsRequest, getTransactionsSummaryRequest, patchTransactionsRequest } from "services/api/transactionsApi";
 
+export const getTransactionsSummaryThunk = createAsyncThunk("transactions/getTransactionsSummaryThunk",
+    async (_, { rejectWithValue }) => {
+        try {
+            const transactionSummary = await getTransactionsSummaryRequest();
+            return transactionSummary;
+        } catch (error) {
+            return rejectWithValue(error.message);
+        }
+    });
 
 export const getTransactionCategoriesThunk = createAsyncThunk("transactions/getTransactionCategoriesThunk",
     async (_, { rejectWithValue }) => {
         try {
-            const contacts = await getTransactionCategoriesRequest ();
-            return contacts;
+            const transactionCategories = await getTransactionCategoriesRequest();
+            return transactionCategories;
         } catch (error) {
             return rejectWithValue(error.message);
         }
@@ -15,8 +24,8 @@ export const getTransactionCategoriesThunk = createAsyncThunk("transactions/getT
 export const getTransactionsThunk = createAsyncThunk("transactions/getTransactionsThunk",
     async (_, { rejectWithValue }) => {
         try {
-            const contacts = await getTransactionsRequest ();
-            return contacts;
+            const transactions = await getTransactionsRequest();
+            return transactions;
         } catch (error) {
             return rejectWithValue(error.message);
         }
@@ -24,26 +33,26 @@ export const getTransactionsThunk = createAsyncThunk("transactions/getTransactio
 export const addTransactionsThunk = createAsyncThunk("transactions/addTransactionsThunk",
     async (formData, { rejectWithValue }) => {
         try {
-            const newContact = await addTransactionsRequest(formData);
-            return newContact;
+            const newTransaction = await addTransactionsRequest(formData);
+            return newTransaction;
         } catch (error) {
             return rejectWithValue(error.message);
         }
     });
 export const patchTransactionsThunk = createAsyncThunk("transactions/patchTransactionsThunk",
-async (transactionId, { rejectWithValue }) => {
-    try {
-        const newContact = await patchTransactionsRequest(transactionId);
-        return newContact;
-    } catch (error) {
-        return rejectWithValue(error.message);
-    }
-});
+    async (transactionId, { rejectWithValue }) => {
+        try {
+            const editTransaction = await patchTransactionsRequest(transactionId);
+            return editTransaction;
+        } catch (error) {
+            return rejectWithValue(error.message);
+        }
+    });
 export const deleteTransactionsThunk = createAsyncThunk("transactions/deleteTransactionsThunk",
     async (transactionId, { rejectWithValue }) => {
         try {
-            const delContact = await deleteTransactionsRequest(transactionId);
-            return delContact;
+            const delTransaction = await deleteTransactionsRequest(transactionId);
+            return delTransaction;
         } catch (error) {
             return rejectWithValue(error.message);
         }
