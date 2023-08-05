@@ -1,27 +1,13 @@
-// import useToggleModal from 'HOC/useToggleModal';
-// import AddTransactionTest from 'components/ModalAddTransaction/AddTransactionTest';
-// import ModalEdit from 'components/ModalEdit/ModalEdit';
+// import AddTransactionModal from 'components/ModalAddTransaction/AddTransactionModal';
+// import EditTransactionModal from 'components/ModalEdit/EditTransactionModal';
 
-// import ButtonAdd from 'components/ModalForm/ButtonAdd';
-// import Modal from 'components/ModalForm/ModalForm';
 import React from 'react';
 
 function App() {
-  //   const { isOpen, openModal, closeModal, handleKeyDown, handleBackdropClick } =
-  //     useToggleModal();
   return (
     <div>
-      {/* <ButtonAdd toggleModal={() => openModal()} text={'edit modal'} />
-      {isOpen && (
-        <Modal
-          closeModal={() => closeModal()}
-          handleKeyDown={handleKeyDown}
-          handleBackdropClick={handleBackdropClick}
-        >
-          <ModalEdit />
-        </Modal>
-      )}
-      <AddTransactionTest /> */}
+      {/* <EditTransactionModal />
+      <AddTransactionModal /> */}
     </div>
   );
 }

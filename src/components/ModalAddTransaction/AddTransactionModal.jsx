@@ -4,7 +4,7 @@ import ButtonAdd from 'components/ModalForm/ButtonAdd';
 import useToggleModal from 'HOC/useToggleModal';
 import Modal from 'components/ModalForm/ModalForm';
 
-const AddTransactionTest = () => {
+const AddTransactionModal = () => {
   const { isOpen, openModal, closeModal, handleKeyDown, handleBackdropClick } =
     useToggleModal();
   return (
@@ -16,11 +16,11 @@ const AddTransactionTest = () => {
           handleKeyDown={handleKeyDown}
           handleBackdropClick={handleBackdropClick}
         >
-          <ModalAddTransaction />
+          <ModalAddTransaction closeModal={closeModal} />
         </Modal>
       )}
     </div>
   );
 };
 
-export default AddTransactionTest;
+export default AddTransactionModal;
