@@ -2,9 +2,9 @@ import {createAsyncThunk} from "@reduxjs/toolkit"
 import { getCurrencyRequest } from "services/currencyApi";
 
 export const currencyThunk = createAsyncThunk ("currency/currencyThunk",
-async (formData, {rejectWithValue}) => {
+async (_, {rejectWithValue}) => {
   try {
-    const data = await getCurrencyRequest (formData);
+    const data = await getCurrencyRequest ();
     console.log(data);
     return data;
   } catch ( error ) {
