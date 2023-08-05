@@ -8,7 +8,7 @@ const initialState = {
     categories: [],
     isLoading: false,
     error: null,
-    filter: ''
+    // filter: ''
 };
 
 const transactionsSlice = createSlice({
@@ -103,5 +103,5 @@ const transactionsSlice = createSlice({
             })
 })
 
-export const { findContacts } = transactionsSlice.actions;
+// export const { findTransaction } = transactionsSlice.actions;
 export const transactionsReducer = transactionsSlice.reducer;

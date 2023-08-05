@@ -1,5 +1,5 @@
 import axios from "axios";
 
 export const $instance = axios.create({
-    baseURL: `https://wallet.goit.ua`
+    baseURL: `https://wallet.goit.ua/api`
 })

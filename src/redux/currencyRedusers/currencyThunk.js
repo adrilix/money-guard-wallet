@@ -11,3 +11,5 @@ async (formData, {rejectWithValue}) => {
     return rejectWithValue(error.message);
   }
 });
+
+export const selectCurrencyData = (state) => state.currency.data;

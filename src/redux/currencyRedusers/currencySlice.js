@@ -6,14 +6,14 @@ const initialState = {
     data: [],
     isLoading: false,
     error: null,
-    filter: ''
+    // filter: ''
 };
 
 const currencySlice = createSlice({
     name: 'currency',
     initialState,
     reducers: {
-        // findTransaction: (state, action) => {
+        // findCurrency: (state, action) => {
         //     state.filter = action.payload;
         // }
     },

@@ -45,3 +45,7 @@ async (_, thunkAPI) => {
     return thunkAPI.rejectWithValue(error.message);
   }
 });
+
+export const selectAuthData = (state) => state.auth.userData;
+export const selectAuthIsLoadingStatus = (state) => state.auth.isLoading;
+export const selectAuthErrorStatus = (state) => state.auth.error;
