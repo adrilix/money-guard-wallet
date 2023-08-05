@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import moment from 'moment';
 import { Formik } from 'formik';
 import {
   BaseInput,
   CalendarWrapper,
+  ExpenseSpan,
   FormikForm,
   Heading,
+  IncomeSpan,
   InputWrapper,
+  TransactionTypeDiv,
   TwoColumnRow,
-} from 'components/ModalEdit/ModalAddTransactionStyled';
-import Switch from './Switch/Switch';
+} from './ModalAddTransactionStyled';
 import CategorySelect from 'components/CategorySelect/CategorySelect';
 import DatetimePicker from 'components/DatetimePicker/DatetimePicker';
 import { CiCalendarDate } from 'react-icons/ci';
@@ -28,42 +30,29 @@ const options = [
   { value: 'entertainment', label: 'Entertainment' },
 ];
 
-const ModalAddTransaction = () => {
-  const [isChecked, setIsChecked] = useState(false);
-
+const ModalEdit = () => {
   const formatDate = inputString => {
     const date = moment(inputString, 'DD MM YYYY HH:mm:ss GMTZZ');
     const formattedDate = date.format('DD.MM.YYYY');
     return formattedDate;
   };
-  const handleCheckboxChange = () => {
-    setIsChecked(isChecked => !isChecked);
-  };
+
   return (
     <Formik
       initialValues={{
         date: `${formatDate(new Date())}`,
-        type: isChecked,
       }}
     >
       <FormikForm>
-        <Heading>Add transaction</Heading>
-        <Switch
-          name="type"
-          checked={isChecked}
-          onClick={handleCheckboxChange}
-          type="radio"
-        />
+        <Heading>Edit transaction</Heading>
+        <TransactionTypeDiv>
+          <IncomeSpan>Income</IncomeSpan>
+          <ExpenseSpan>Expense</ExpenseSpan>
+        </TransactionTypeDiv>
 
-        {!isChecked && (
-          <InputWrapper>
-            <CategorySelect
-              name="category"
-              placeholder="Select a category"
-              options={options}
-            />
-          </InputWrapper>
-        )}
+        <InputWrapper>
+          <CategorySelect options={options} name="category" />
+        </InputWrapper>
 
         <TwoColumnRow>
           <InputWrapper>
@@ -100,4 +89,4 @@ const ModalAddTransaction = () => {
   );
 };
 
-export default ModalAddTransaction;
+export default ModalEdit;
