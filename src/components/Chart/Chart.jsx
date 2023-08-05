@@ -86,7 +86,7 @@ const ChartComponent = () => {
       const textX = Math.round((width - ctx.measureText(text).width) / 2);
       const textY = height / 2;
 
-      ctx.fillStyle = '#000'; // Задайте колір тексту, який вам потрібний
+      ctx.fillStyle = '#000';
       ctx.fillText(text, textX, textY);
       ctx.save();
     },
