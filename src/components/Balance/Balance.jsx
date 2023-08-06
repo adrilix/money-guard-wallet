@@ -1,11 +1,16 @@
-import React from 'react'
+import {
+  StyledBalance,
+  StyledBalanceBox,
+  StyledBalanceLabel,
+} from './BalanceStyled';
 
-function Balance() {
+export const Balance = () => {
   return (
-    <div>
-      
-    </div>
-  )
-}
-
-export default Balance
+    <StyledBalanceBox>
+      <StyledBalanceLabel>Your balance</StyledBalanceLabel>
+      <StyledBalance>
+        <span>₴</span>24 000.00
+      </StyledBalance>
+    </StyledBalanceBox>
+  );
+};
