@@ -1,4 +1,9 @@
 export const fields = {
+  name: {
+    name: 'name',
+    type: 'text',
+    placeholder: 'Name',
+  },
   email: {
     name: 'email',
     type: 'text',

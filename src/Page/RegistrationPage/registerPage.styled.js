@@ -18,7 +18,7 @@ export const LoginStyled = styled.div`
 
   @media screen and (min-width: 767px) {
     width: 533px;
-    height: 570px;
+    height: 655px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);

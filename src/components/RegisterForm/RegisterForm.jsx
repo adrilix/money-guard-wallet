@@ -5,6 +5,7 @@ import { fields } from './fields';
 import TextField from '../../shared/TextFild';
 import Button from '../../shared/Button';
 import { MdEmail, MdHttps } from 'react-icons/md';
+import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 // import PasswordStrengthBar from 'react-password-strength-bar';
 import { Form, Formik } from 'formik';
@@ -14,6 +15,9 @@ import PasswordStrengthBar from 'react-password-strength-bar';
 
 const RegisterForm = ({ onSubmit }) => {
   const validate = Yup.object().shape({
+    name: Yup.string()
+      .max(15, 'Must be 15 characters or less')
+      .required('Required'),
     email: Yup.string().email('Invalid email address').required('Required'),
     password: Yup.string()
       .min(6, 'Must be at least 6 characters')
@@ -34,12 +38,16 @@ const RegisterForm = ({ onSubmit }) => {
         <RegisterFormS>
           <Form className="loginRegForm">
             <div className="boxLogin">
+              <TextField {...fields.name} />
+              <FaUser className="iconReg" />
+            </div>
+            <div className="boxLogin">
               <TextField {...fields.email} />
-              <MdEmail className="iconEmail" />
+              <MdEmail className="iconReg" />
             </div>
             <div className="boxLogin">
               <TextField {...fields.password} />
-              <MdHttps className="iconPass" />
+              <MdHttps className="iconReg" />
             </div>
             <div className="boxLogin">
               <TextField
@@ -51,7 +59,7 @@ const RegisterForm = ({ onSubmit }) => {
                 className="passBar"
               />
 
-              <MdHttps className="iconPassCorrect" />
+              <MdHttps className="iconReg" />
             </div>
             <Button variant="registration" type="submit">
               Register

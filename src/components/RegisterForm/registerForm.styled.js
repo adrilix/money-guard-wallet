@@ -7,21 +7,7 @@ export const RegisterFormS = styled.div`
     align-items: center;
     .boxLogin {
       position: relative;
-      .iconEmail {
-        position: absolute;
-        left: 5px;
-        top: 30px;
-        font-size: 24px;
-        color: rgb(255 255 255 / 0.6);
-      }
-      .iconPass {
-        position: absolute;
-        left: 5px;
-        top: 30px;
-        font-size: 24px;
-        color: rgb(255 255 255 / 0.6);
-      }
-      .iconPassCorrect {
+      .iconReg {
         position: absolute;
         left: 5px;
         top: 30px;

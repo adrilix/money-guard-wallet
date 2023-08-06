@@ -10,13 +10,18 @@ import { Navigate } from 'react-router-dom';
 import { registerThunk } from 'redux/registrationReducer/registrationThunks';
 
 const RegisterPage = () => {
+  // const onSignUp = ({ name, email, password }) => {
+  //   const newValue = { name, email, password };
+  //   console.log(`loginPage`, newValue);
+  // };
+
   const dispatch = useDispatch();
-  const onSignUp = data => {
-    dispatch(registerThunk(data));
+  const onSignUp = ({ name, email, password }) => {
+    dispatch(registerThunk({ username: name, email, password }));
   };
   const isLogin = UseAuth();
   if (isLogin) {
-    return <Navigate to="/nopage" />;
+    return <Navigate to="/home" />;
   }
 
   return (

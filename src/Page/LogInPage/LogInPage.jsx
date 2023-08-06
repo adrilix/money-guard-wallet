@@ -15,7 +15,7 @@ const LoginPage = () => {
   const isLogin = UseAuth();
 
   if (isLogin) {
-    return <Navigate to="/nopage" />;
+    return <Navigate to="/home" />;
   }
   return (
     <LoginSection>
