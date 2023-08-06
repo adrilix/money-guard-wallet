@@ -1,13 +1,8 @@
 import React from 'react';
-import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+
 import picture from '../../svg/lepr-re.png';
 import { NotPageSection, NotPageStyled } from './notPage.styled';
 const NotPage = () => {
-  const navigate = useNavigate();
-  useEffect(() => {
-    navigate(-1);
-  }, [navigate]);
   return (
     <NotPageSection>
       <NotPageStyled className="text404">
