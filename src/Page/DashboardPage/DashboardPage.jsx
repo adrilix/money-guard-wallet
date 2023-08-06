@@ -1,26 +1,38 @@
-import Currency from 'components/Currency/Currency'
+// import Currency from 'components/Currency/Currency'
 import Header from 'components/Header/Header'
-import Navigation from 'components/Navigation/Navigation'
+import {Navigation} from 'components/Navigation/Navigation'
 import Table from 'components/Table/Table'
 import React, { useEffect } from 'react'
-import { useDispatch } from 'react-redux'
-import { getTransactionCategoriesRequest } from 'services/api/transactionCategoriesApi'
-import { getTransactionsRequest } from 'services/api/transactionsApi'
+import { useDispatch, useSelector } from 'react-redux'
+import { refreshAuthThunk } from 'redux/registrationReducer/registrationThunks'
+import { getTransactionCategoriesThunk, getTransactionsThunk } from 'redux/transactionsReduser/transactionsThunks'
 
 function DashboardPage() {
 
+  const isLogin = useSelector((state) => state.auth.isLogin);
+
   const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(getTransactionCategoriesRequest())
-    dispatch(getTransactionsRequest())
-  },[dispatch])
+    if (isLogin) return;
+    dispatch(refreshAuthThunk())
+  }, [dispatch, isLogin]);
+
+ 
+  useEffect(() => {
+      dispatch(getTransactionCategoriesThunk());
+      dispatch(getTransactionsThunk());
+
+  }, [dispatch]);
+
+ 
 
   return (
     <div>
       <Header />
       <div>
         <Navigation />
-        <Currency/>
+        {/* <Currency/> */}
       </div>
       <Table/>
     </div>
