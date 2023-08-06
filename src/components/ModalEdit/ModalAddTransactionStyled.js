@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Form } from 'formik';
+import { Form, ErrorMessage } from 'formik';
 
 export const FormikForm = styled(Form)`
   display: flex;
@@ -9,7 +9,7 @@ export const FormikForm = styled(Form)`
   row-gap: 40px;
 `;
 export const Heading = styled.h3`
-  color: var(--font-color-dark);
+  color: #000;
   text-align: center;
   font-family: Poppins;
   font-size: 30px;
@@ -78,7 +78,17 @@ export const BaseInput = styled.input`
     width: 409.5px;
   }
 `;
-
+export const placeholderStyles = {
+  placeholder: provided => ({
+    ...provided,
+    paddingLeft: '8px',
+    paddingBottom: '2px',
+    color: '#000',
+    '@media only screen and (max-width: 767px)': {
+      paddingLeft: '0px',
+    },
+  }),
+};
 export const InputWrapper = styled.div`
   position: relative;
   display: flex;
@@ -143,4 +153,11 @@ export const CalendarWrapper = styled.div`
       right: 20px;
     }
   }
+`;
+export const ErrorText = styled(ErrorMessage)`
+  position: absolute;
+  top: 28px;
+  left: 0px;
+  font-size: 13px;
+  color: red;
 `;

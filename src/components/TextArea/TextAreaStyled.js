@@ -58,7 +58,7 @@ export const StyledTextarea = styled.textarea`
     mask-size: 100% 20000px;
     mask-position: left bottom;
     -webkit-mask-image: linear-gradient(to top, transparent, #000),
-      linear-gradient(to left, transparent 4px, var#000 4px);
+      linear-gradient(to left, transparent 4px, #000 4px);
     -webkit-mask-size: 100% 20000px;
     -webkit-mask-position: left bottom;
     transition: mask-position 0.3s, -webkit-mask-position 0.3s;

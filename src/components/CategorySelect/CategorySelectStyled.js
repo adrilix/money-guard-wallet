@@ -43,7 +43,7 @@ export const customStyles = {
   menu: provided => ({
     ...provided,
     borderRadius: '20px',
-    backgroundColor: 'var#0000001a',
+    backgroundColor: '#0000001a',
     boxShadow: '0px 6px 15px 0px #0000001a',
     backdropFilter: 'blur(9px)',
     overflow: 'hidden',

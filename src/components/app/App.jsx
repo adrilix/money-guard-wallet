@@ -1,27 +1,21 @@
-// import useToggleModal from 'HOC/useToggleModal';
-// import AddTransactionTest from 'components/ModalAddTransaction/AddTransactionTest';
-// import ModalEdit from 'components/ModalEdit/ModalEdit';
+// import AddTransactionModal from 'components/ModalAddTransaction/AddTransactionModal';
+// import EditTransactionModal from 'components/ModalEdit/EditTransactionModal';
 
-// import ButtonAdd from 'components/ModalForm/ButtonAdd';
-// import Modal from 'components/ModalForm/ModalForm';
-import React from 'react';
+import React, { useEffect } from 'react';
+import UserRoutes from './Routes';
+import { useDispatch } from 'react-redux';
+import { refreshAuthThunk } from 'redux/registrationReducer/registrationThunks';
 
 function App() {
-  // const { isOpen, openModal, closeModal, handleKeyDown, handleBackdropClick } =
-  //   useToggleModal();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(refreshAuthThunk());
+  }, [dispatch]);
   return (
     <div>
-      {/* <ButtonAdd toggleModal={() => openModal()} text={'edit modal'} />
-      {isOpen && (
-        <Modal
-          closeModal={() => closeModal()}
-          handleKeyDown={handleKeyDown}
-          handleBackdropClick={handleBackdropClick}
-        >
-          <ModalEdit />
-        </Modal>
-      )}
-      <AddTransactionTest /> */}
+      <UserRoutes />
+      {/* <EditTransactionModal />
+      <AddTransactionModal /> */}
     </div>
   );
 }

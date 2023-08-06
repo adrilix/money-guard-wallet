@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function ButtonAdd({ toggleModal, text }) {
+export default function ButtonAdd({ toggleModal, text, type }) {
   return (
-    <button type="button" onClick={toggleModal} aria-label="open modal">
+    <button type={type} onClick={toggleModal} aria-label="open modal">
       {text}
     </button>
   );
