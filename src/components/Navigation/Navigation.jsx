@@ -5,7 +5,7 @@ export const Navigation = () => {
     <nav>
       <StyledNavList>
         <li>
-          <StyledNavLink>
+          <StyledNavLink to="/home">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"
@@ -21,7 +21,7 @@ export const Navigation = () => {
           </StyledNavLink>
         </li>
         <li>
-          <StyledNavLink>
+          <StyledNavLink to="/statistic">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 32 32"
