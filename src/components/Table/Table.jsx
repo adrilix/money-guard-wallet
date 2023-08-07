@@ -1,27 +1,44 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { Section, TableContainer, StyledTable, Thead, ThDate, Th, ThLast, TdDate, Td, TdDel, TdSvg, AddBtn, BtnRightCorner, EditBtn, DeleteBtn } from './TableStyled';
-import { BiPencil } from 'react-icons/bi';
-import { AiOutlinePlus } from 'react-icons/ai';
-import ModalAddTransaction from '../ModalAddTransaction/ModalAddTransaction';
-import Modal from 'components/ModalForm/ModalForm';
-import useToggleModal from '../../HOC/useToggleModal';
-import ModalEdit from 'components/ModalEdit/ModalEdit';
+import {
+  Section,
+  TableContainer,
+  StyledTable,
+  Thead,
+  ThDate,
+  Th,
+  ThLast,
+  TdDate,
+  Td,
+  TdDel,
+  TdSvg,
+  //   AddBtn,
+  //   BtnRightCorner,
+  //   EditBtn,
+  DeleteBtn,
+} from './TableStyled';
+// import { BiPencil } from 'react-icons/bi';
+// import { AiOutlinePlus } from 'react-icons/ai';
+// import ModalAddTransaction from '../ModalAddTransaction/ModalAddTransaction';
+// import Modal from 'components/ModalForm/ModalForm';
+// import useToggleModal from '../../HOC/useToggleModal';
+// import ModalEdit from 'components/ModalEdit/ModalEdit';
 import { deleteTransactionsThunk } from 'redux/transactionsReduser/transactionsThunks';
 import { useDispatch } from 'react-redux';
-
+import AddTransactionModal from 'components/ModalAddTransaction/AddTransactionModal';
+import EditTransactionModal from 'components/ModalEdit/EditTransactionModal';
 
 const Table = () => {
-  const tableData = useSelector((state) => state.transactions.transactions);
+  const tableData = useSelector(state => state.transactions.transactions);
   const dispatch = useDispatch();
-
-  const handleDelete = (transactionId) => {
+  console.log(tableData);
+  const handleDelete = transactionId => {
     dispatch(deleteTransactionsThunk(transactionId));
     console.log(`Transaction with ID ${transactionId} has been deleted.`);
   };
 
-  const { isOpen, openModal, closeModal, handleKeyDown, handleBackdropClick } =
-    useToggleModal();
+  //   const { isOpen, openModal, closeModal, handleKeyDown, handleBackdropClick } =
+  //     useToggleModal();
 
   return (
     <>
@@ -40,7 +57,7 @@ const Table = () => {
               </tr>
             </Thead>
             <tbody>
-              {tableData.map((item) => (
+              {tableData.map(item => (
                 <tr key={item.id}>
                   <TdDate>{item.transactionDate}</TdDate>
                   <Td>{item.type}</Td>
@@ -48,7 +65,8 @@ const Table = () => {
                   <Td>{item.comment}</Td>
                   <Td>{item.amount}</Td>
                   <TdSvg>
-                    <EditBtn onClick={openModal}>
+                    <EditTransactionModal />
+                    {/* <EditBtn onClick={openModal}>
                       <BiPencil />
                       {isOpen && (
                         <Modal
@@ -59,10 +77,12 @@ const Table = () => {
                           <ModalEdit />
                         </Modal>
                       )}
-                    </EditBtn>
+                    </EditBtn> */}
                   </TdSvg>
                   <TdDel>
-                    <DeleteBtn onClick={() => handleDelete(item.id)}>Delete</DeleteBtn>
+                    <DeleteBtn onClick={() => handleDelete(item.id)}>
+                      Delete
+                    </DeleteBtn>
                   </TdDel>
                 </tr>
               ))}
@@ -71,7 +91,8 @@ const Table = () => {
         </TableContainer>
 
         <div>
-          <BtnRightCorner>
+          <AddTransactionModal />
+          {/* <BtnRightCorner>
             <AddBtn onClick={openModal}>
               <AiOutlinePlus />
             </AddBtn>
@@ -85,7 +106,7 @@ const Table = () => {
             >
               <ModalAddTransaction />
             </Modal>
-          )}
+          )} */}
         </div>
       </Section>
     </>

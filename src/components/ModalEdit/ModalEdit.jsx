@@ -23,8 +23,6 @@ import { patchTransactionsThunk } from 'redux/transactionsReduser/transactionsTh
 import { object, string, date, bool, mixed, number } from 'yup';
 import { customStyles } from 'components/CategorySelect/CategorySelectStyled';
 
-
-
 const options = [
   { value: 'main expenses', label: 'Main expenses' },
   { value: 'products', label: 'Products' },
