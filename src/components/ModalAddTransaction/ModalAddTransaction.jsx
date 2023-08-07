@@ -15,32 +15,35 @@ import CategorySelect from 'components/CategorySelect/CategorySelect';
 import DatetimePicker from 'components/DatetimePicker/DatetimePicker';
 import { CiCalendarDate } from 'react-icons/ci';
 import Textarea from 'components/TextArea/TextArea';
-import { useDispatch } from 'react-redux';
-import { addTransactionsThunk } from 'redux/transactionsReduser/transactionsThunks';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  addTransactionsThunk,
+  getTransactionsThunk,
+  selectTransactionsCategories,
+} from 'redux/transactionsReduser/transactionsThunks';
 import { object, string, date, bool, mixed, number } from 'yup';
-
-const options = [
-  { value: 'main expenses', label: 'Main expenses' },
-  { value: 'products', label: 'Products' },
-  { value: 'car', label: 'Car' },
-  { value: 'self care', label: 'Self care' },
-  { value: 'child care', label: 'Child care' },
-  { value: 'household products', label: 'Household products' },
-  { value: 'education', label: 'Education' },
-  { value: 'leisure', label: 'Leisure' },
-  { value: 'other expenses', label: 'Other expenses' },
-  { value: 'entertainment', label: 'Entertainment' },
-];
 
 const ModalAddTransaction = ({ closeModal }) => {
   const [isChecked, setIsChecked] = useState(false);
   const dispatch = useDispatch();
+  const categories = useSelector(selectTransactionsCategories);
 
-  const formatDate = inputString => {
-    const date = moment(inputString, 'DD MM YYYY HH:mm:ss GMTZZ');
-    const formattedDate = date.format('DD.MM.YYYY');
-    return formattedDate;
-  };
+  console.log(categories);
+
+  const incomeId = categories
+    .filter(category => (category.type === 'INCOME' ? category.id : null))
+
+    .reduce(function (target, key, idx) {
+      target[idx] = key;
+      return target;
+    });
+  console.log(incomeId.id);
+
+  //   const formatDate = inputString => {
+  //     const date = moment(inputString, 'DD MM YYYY HH:mm:ss GMTZZ');
+  //     const formattedDate = date.format('DD.MM.YYYY');
+  //     return formattedDate;
+  //   };
   const dateTransformer = (_, originalValue) => {
     const parsedDate = moment(originalValue, 'DD.MM.YYYY');
     return parsedDate.isValid() ? parsedDate.toDate() : new Date('');
@@ -50,27 +53,30 @@ const ModalAddTransaction = ({ closeModal }) => {
   };
 
   const handleSubmit = values => {
-    dispatch(
-      addTransactionsThunk({
-        amount: values.value,
-        comment: values.comment,
-        date: values.date,
-        category: isChecked ? 'income' : values.category.label,
-        isIncome: isChecked,
-      })
+    const data = {
+      transactionDate: values.date,
+      type: isChecked ? 'INCOME' : 'EXPENSE',
+      categoryId: isChecked ? incomeId.id : values.category.id,
+
+      comment: values.comment,
+      amount: isChecked ? Number(values.value) : Number(-values.value),
+    };
+    dispatch(addTransactionsThunk(data)).then(() =>
+      dispatch(getTransactionsThunk())
     );
 
-    document.body.style.overflow = 'unset';
+    //  document.body.style.overflow = 'unset';
   };
 
   return (
     <Formik
       initialValues={{
+        date: new Date(),
         type: isChecked,
-        category: null,
-        value: '',
-        date: `${formatDate(new Date())}`,
+        categoryId: 'string',
         comment: '',
+        value: '',
+        category: null,
       }}
       validationSchema={object({
         type: bool(),
@@ -117,9 +123,13 @@ const ModalAddTransaction = ({ closeModal }) => {
                 name="category"
                 placeholder="Select a category"
                 value={values.category}
-                onChange={category => setFieldValue('category', category)}
-                options={options}
-              />{' '}
+                onChange={option => setFieldValue('category', option)}
+                options={categories?.map(option => ({
+                  value: option.type,
+                  label: option.name,
+                  id: option.id,
+                }))}
+              />
               <ErrorText name="category" component="div" />
             </InputWrapper>
           )}
