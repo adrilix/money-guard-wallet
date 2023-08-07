@@ -1,5 +1,7 @@
 // import Currency from 'components/Currency/Currency'
+import { Balance } from 'components/Balance/Balance'
 import Header from 'components/Header/Header'
+import ButtonAdd from 'components/ModalForm/ButtonAdd'
 import {Navigation} from 'components/Navigation/Navigation'
 import Table from 'components/Table/Table'
 import React, { useEffect } from 'react'
@@ -32,8 +34,10 @@ function DashboardPage() {
       <Header />
       <div>
         <Navigation />
+        <Balance/>
         {/* <Currency/> */}
       </div>
+      <ButtonAdd/>
       <Table/>
     </div>
     
