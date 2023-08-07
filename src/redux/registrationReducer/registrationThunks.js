@@ -38,7 +38,6 @@ export const registerThunk = createAsyncThunk(
   async (formData, { rejectWithValue }) => {
     try {
       const data = await registerRequest(formData);
-      console.log(data);
       notifySuc('Registration is success!');
       return data;
     } catch (error) {
