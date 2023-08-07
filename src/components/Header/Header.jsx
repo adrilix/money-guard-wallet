@@ -7,9 +7,19 @@ import { logOutThunk, selectAuthData } from 'redux/registrationReducer/registrat
 import { LogOutModal } from 'components/LogOutModal/LogOutModal';
 
 function Header() {
-  // const name= useSelector(selectAuthData);
+  const name = useSelector(selectAuthData);
+  
 const [showIt, setShowIt] = useState(false);
   const dispatch = useDispatch();
+
+  if (name === null) {
+    console.log(123);
+  } else {
+    console.log(999);
+  }
+
+  console.log(name);
+  
 
   const showLogOutModal = () => {
     setShowIt(true);
@@ -28,7 +38,7 @@ const [showIt, setShowIt] = useState(false);
         <LogoName>Money Guard</LogoName>
       </LogoBox>
       <Box>
-        {/* {name && <Name></Name>} */}
+        {name ?  <Name>{name.username }</Name> : ""}
         <Stick />
         <ExitButton id="exit" type="button" onClick={showLogOutModal}>
           <ExitIcon src={exit} alt="exit" />

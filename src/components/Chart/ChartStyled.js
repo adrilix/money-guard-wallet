@@ -1,20 +1,5 @@
-// import s from 'styled-components';
+
 import styled from 'styled-components';
-
-// export const Total = s.div`
-// // position: fixed;
-// // top: 290px;
-// // left: 660px;
-// color: var(--white, #FBFBFB);
-// text-align: center;
-// font-family: Poppins;
-// font-size: 18px;
-// font-weight: 600;`
-
-// export const Diagramm = s.div`
-// width: 288px;
-// height: 288px;
-// `
 
 export const Total = styled.div`
   font-size: calc(14px + (100vw - 288px) * 0.01);
