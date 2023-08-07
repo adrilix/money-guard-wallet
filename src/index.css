@@ -7,8 +7,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: linear-gradient(276deg, #2E1746 3.19%, #2E225F 100%);
-  /* background-image: url(./svg/Gradient2.png); */
+  background: #101010;
+  background-image: url(./svg/Gradient2.png);
 }
 
 code {
