@@ -7,6 +7,7 @@ import CurrencyPage from 'Page/CurrencyPage/CurrencyPage';
 
 import DashboardPage from 'Page/DashboardPage/DashboardPage';
 import NotPage from 'Page/NotPage/NotPage';
+import SummaryPage from 'Page/SummaryPage/SummaryPage';
 
 // const LoginPages = lazy(() => import('../pages/Loginregistrpages/LoginPage'));
 // const RegisterPages = lazy(() =>
@@ -20,7 +21,7 @@ const UserRoutes = () => {
   return (
     // <Suspense fallback="...Loading">
     <Routes>
-      <Route path="/nopage" element={<NotPage />} />
+      <Route path="*" element={<NotPage />} />
       {/* <Route element={<PublicRoute />}> */}
       <Route path="/" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
@@ -28,6 +29,7 @@ const UserRoutes = () => {
       {/* <Route element={<PrivateRoute />}> */}
       <Route path="/home" element={<DashboardPage />} />
       <Route path="/currency" element={<CurrencyPage />} />
+       <Route path="/statistic" element={<SummaryPage />} />
       {/* </Route> */}
     </Routes>
     // </Suspense>

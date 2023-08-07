@@ -8,6 +8,7 @@ export const customSelect = {
   container: (provided) => ({
     ...provided,
     width: '100%',
+    maxHeight:'50px',
         maxWidth: '182px',
     fontFamily: 'Poppins',
         fontSize: '16px',
@@ -18,6 +19,7 @@ export const customSelect = {
       ...provided,
     background: 'rgba(74, 86, 226, 0.10)',
     minHeight: '50px',
+     width:'182px',
     border: 'none',
     boxShadow: 'none',
     margin: '0',
@@ -40,7 +42,7 @@ option: (provided, { isFocused }) => ({
     ...provided,
       textAlign: 'center',
       borderRadius: '8px',
-      margin: '0',
+    margin: '0',
     
   }),
     menuList: (provided) => ({
