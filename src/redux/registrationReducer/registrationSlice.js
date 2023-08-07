@@ -59,6 +59,7 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.userData = null;
         state.token = null;
+        state.isLogin = false;
       })
       .addCase(logOutThunk.rejected, (state, { error }) => {
         state.isLoading = false;
