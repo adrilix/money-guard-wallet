@@ -2,9 +2,8 @@ import { Outlet, Navigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 const PrivateRoute = () => {
-    const isLogin = useSelector((state) => state.auth.isLogin);
-    
-  if (!isLogin) {
+    const token = useSelector((state)=>state.auth.token)
+  if (!token) {
     return <Navigate to="/" />;
   }
   return <Outlet />;
