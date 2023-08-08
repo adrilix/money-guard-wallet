@@ -24,4 +24,11 @@ export const NotPageStyled = styled.div`
     margin: 0;
     text-shadow: #fc0 1px 0 10px;
   }
+  .link404 {
+    text-decoration: none;
+    font-weight: bold;
+    color: rgb(255 255 255 / 0.6);
+    outline: 1px solid rgb(255 255 255 / 0.6);
+    padding: 10px;
+  }
 `;

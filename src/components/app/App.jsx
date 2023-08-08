@@ -1,6 +1,5 @@
 // import AddTransactionModal from 'components/ModalAddTransaction/AddTransactionModal';
 // import EditTransactionModal from 'components/ModalEdit/EditTransactionModal';
-
 // import React, { useEffect } from 'react';
 import UserRoutes from './Routes';
 // import { useDispatch } from 'react-redux';
@@ -9,9 +8,13 @@ import UserRoutes from './Routes';
 
 function App() {
 
+  
   return (
     <div>
+
       <UserRoutes />
+
+
       {/* <EditTransactionModal />
       <AddTransactionModal /> */}
     </div>

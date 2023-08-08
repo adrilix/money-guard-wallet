@@ -28,8 +28,8 @@ export const Diagramm = styled.div`
     width: 100% !important;
     height: 100% !important;
     max-width: 390px;
-    min-height: 280px;
-    min-width: 280px;
+    min-height: 288px;
+    min-width: 288px;
     max-height: 500px;
     @media (min-width: 768px) {
       max-width: calc(100vh - 80px - 214px - 114px);
