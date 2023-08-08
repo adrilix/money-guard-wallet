@@ -8,3 +8,5 @@ export const CurrencyPage = () => {
     </div>
   );
 };
+
+export default CurrencyPage
