@@ -31,9 +31,10 @@ const UserRoutes = () => {
           <Route path="register" element={<RegisterPage />} />
         </Route>
         <Route element={<PrivateRoute />}>
-          <Route path="home" element={<DashboardPage />} />
-          <Route path="currency" element={<CurrencyPage />} />
-          <Route path="statistic" element={<SummaryPage />} />
+          <Route path="home" element={<DashboardPage />}>
+            <Route path="currency" element={<CurrencyPage />} />
+            <Route path="statistic" element={<SummaryPage />} />
+          </Route>
         </Route>
       </Routes>
     </Suspense>
