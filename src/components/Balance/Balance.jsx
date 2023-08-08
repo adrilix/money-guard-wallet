@@ -7,6 +7,8 @@ import {
 import { useSelector } from 'react-redux';
 import { selectAuthData } from 'redux/registrationReducer/registrationThunks';
 
+
+
 export const Balance = () => {
   const balance = useSelector(selectAuthData);
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1279 });
@@ -19,7 +21,7 @@ export const Balance = () => {
           <StyledBalanceLabel>Your balance</StyledBalanceLabel>
           <StyledBalance>
             <span>₴ </span>
-            {balance.balance}
+            {balance ? <>{balance.balance}</> : ""}
           </StyledBalance>
         </StyledBalanceBox>
       )}
@@ -28,7 +30,7 @@ export const Balance = () => {
           <StyledBalanceLabel>Your balance</StyledBalanceLabel>
           <StyledBalance>
             <span>₴ </span>
-            {balance.balance}
+            {balance ? <>{balance.balance}</> : ""}
           </StyledBalance>
         </StyledBalanceBox>
       )}

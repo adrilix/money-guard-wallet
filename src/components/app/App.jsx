@@ -7,6 +7,8 @@ import UserRoutes from './Routes';
 // import { getTransactionCategoriesThunk, getTransactionsThunk } from 'redux/transactionsReduser/transactionsThunks';
 
 function App() {
+
+  
   return (
     <div>
       <UserRoutes />
