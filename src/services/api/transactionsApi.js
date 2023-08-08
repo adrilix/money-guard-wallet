@@ -1,7 +1,7 @@
 import { $instance } from './baseURL';
 
-export const getTransactionsSummaryRequest = async () => {
-    const {data} = await $instance.get('/transactions-summary');
+export const getTransactionsSummaryRequest = async (params) => {
+    const {data} = await $instance.get('/transactions-summary', {params});
     return data;
 };
 

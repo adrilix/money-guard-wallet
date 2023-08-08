@@ -3,9 +3,9 @@ import { getTransactionCategoriesRequest } from "services/api/transactionCategor
 import { addTransactionsRequest, deleteTransactionsRequest, getTransactionsRequest, getTransactionsSummaryRequest, patchTransactionsRequest } from "services/api/transactionsApi";
 
 export const getTransactionsSummaryThunk = createAsyncThunk("transactions/getTransactionsSummaryThunk",
-    async (_, { rejectWithValue }) => {
+    async (params, { rejectWithValue }) => {
         try {
-            const transactionSummary = await getTransactionsSummaryRequest();
+            const transactionSummary = await getTransactionsSummaryRequest(params);
             return transactionSummary;
         } catch (error) {
             return rejectWithValue(error.message);

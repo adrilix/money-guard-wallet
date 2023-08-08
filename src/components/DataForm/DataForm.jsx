@@ -1,20 +1,31 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Select from 'react-select';
 import { SelectBox, customSelect } from './DataFormStyled';
+import { useDispatch } from 'react-redux';
+import { getTransactionsSummaryThunk } from 'redux/transactionsReduser/transactionsThunks';
 
 const DatePicker = () => {
-  const [selectedMonth, setSelectedMonth] = useState(null);
-  const [selectedYear, setSelectedYear] = useState(null);
+  const dispatch = useDispatch();
+  const date = new Date();
+  
+  const [month, setMonth] = useState(date.getMonth()+1);
+  const [year, setYear] = useState(date.getFullYear());
 
-  const handleMonthChange = (selectedOption) => {
-    setSelectedMonth(selectedOption);
+  console.log(month);
+  const handleMonthChange = selectedOption => {
+    setMonth(selectedOption.value);
   };
 
-  const handleYearChange = (selectedOption) => {
-    setSelectedYear(selectedOption);
+  const handleSelectYear = selectedOption => {
+    setYear(selectedOption.value);
   };
 
-  const months = [
+  useEffect(() => {
+    dispatch(getTransactionsSummaryThunk({ month: Number(month), year: Number(year) }))
+  }, [dispatch, month, year]);
+
+
+ const months = [
     { value: 1, label: 'January' },
   { value: 2, label: 'February' },
   { value: 3, label: 'March' },
@@ -24,9 +35,9 @@ const DatePicker = () => {
   { value: 7, label: 'July' },
   { value: 8, label: 'August' },
   { value: 9, label: 'September' },
-  { value: 11, label: 'October' },
-  { value: 12, label: 'November' },
-  { value: 13, label: 'December' },
+  { value: 10, label: 'October' },
+  { value: 11, label: 'November' },
+  { value: 12, label: 'December' },
   ];
 
   const currentYear = new Date().getFullYear();
@@ -38,7 +49,6 @@ const DatePicker = () => {
   return (
     <SelectBox>
       <Select
-        value={selectedMonth}
         options={months}
         styles={customSelect}
         onChange={handleMonthChange}
@@ -46,10 +56,9 @@ const DatePicker = () => {
         isSearchable={false}
       />
       <Select
-        value={selectedYear}
         options={years}
         styles={customSelect}
-        onChange={handleYearChange}
+        onChange={handleSelectYear}
         placeholder="Select a year"
         isSearchable={false}
       />
@@ -58,3 +67,5 @@ const DatePicker = () => {
 };
 
 export default DatePicker;
+
+
