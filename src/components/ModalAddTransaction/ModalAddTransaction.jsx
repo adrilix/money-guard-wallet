@@ -36,11 +36,6 @@ const ModalAddTransaction = ({ closeModal }) => {
       return target;
     });
 
-  //  const formatDate = inputString => {
-  //    const date = moment(inputString, 'DD MM YYYY HH:mm:ss GMTZZ');
-  //    const formattedDate = date.format('DD.MM.YYYY');
-  //    return formattedDate;
-  //  };
   const dateTransformer = (_, originalValue) => {
     const parsedDate = moment(originalValue, 'DD.MM.YYYY');
     return parsedDate.isValid() ? parsedDate.toDate() : new Date('');
@@ -49,21 +44,19 @@ const ModalAddTransaction = ({ closeModal }) => {
     setIsChecked(isChecked => !isChecked);
   };
 
-   const handleSubmit = values => {
-     console.log(values)
+  const handleSubmit = values => {
+    console.log(values);
     const data = {
-      transactionDate: values.date,
+      transactionDate: new Date(values.date),
       type: isChecked ? 'INCOME' : 'EXPENSE',
-      // categoryId: isChecked ? incomeId.id : values.category.id,
+
       categoryId: isChecked ? incomeId.id : values.category.id,
       comment: values.comment,
       amount: isChecked ? Number(values.value) : Number(-values.value),
     };
-    dispatch(addTransactionsThunk(data)).then(() =>
-      dispatch(getTransactionsThunk())
-    );
-
-    //  document.body.style.overflow = 'unset';
+    dispatch(addTransactionsThunk(data))
+      .unwrap()
+      .then(() => dispatch(getTransactionsThunk()));
   };
 
   return (
@@ -90,6 +83,7 @@ const ModalAddTransaction = ({ closeModal }) => {
             'Transaction value can be a maximum of 16 characters',
             val => val.toString().length <= 16
           )
+
           .required('Please provide transaction value.'),
         date: date()
           .transform(dateTransformer)

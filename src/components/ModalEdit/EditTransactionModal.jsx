@@ -6,12 +6,17 @@ import ModalEdit from './ModalEdit';
 import { EditBtn } from 'components/Table/TableStyled';
 import { BiPencil } from 'react-icons/bi';
 
-const EditTransactionModal = () => {
+const EditTransactionModal = ({ item }) => {
   const { isOpen, openModal, closeModal, handleKeyDown, handleBackdropClick } =
     useToggleModal();
+
   return (
     <div>
-      <EditBtn onClick={() => openModal()}>
+      <EditBtn
+        onClick={() => {
+          openModal();
+        }}
+      >
         <BiPencil />
       </EditBtn>
 
@@ -21,7 +26,7 @@ const EditTransactionModal = () => {
           handleKeyDown={handleKeyDown}
           handleBackdropClick={handleBackdropClick}
         >
-          <ModalEdit closeModal={closeModal} />
+          <ModalEdit closeModal={closeModal} item={item} />
         </Modal>
       )}
     </div>

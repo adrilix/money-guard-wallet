@@ -1,7 +1,6 @@
 import React from "react";
 import { useSelector } from 'react-redux';
-import iMacImage from '../../img/iMac.png';
-import {Section} from "./StatisticsStyled"
+// import {Section} from "./StatisticsStyled"
 
 const StatisticsTable = () => {
    const tableData = useSelector((state) => state.transactions.transactions);
@@ -17,7 +16,7 @@ const StatisticsTable = () => {
   const RenderTable = () => {
     return (
 
-      <Section style={{ backgroundImage: `url(${iMacImage})` }}>
+      <section>
       <table>
         <thead>
           <tr>
@@ -36,7 +35,7 @@ const StatisticsTable = () => {
           ))}
         </tbody>
           </table>
-        </Section>
+        </section>
         );
   };
       

@@ -1,4 +1,4 @@
-export const CurrencyPage = () => {
+const CurrencyPage = () => {
   return (
     <div>
       <img
@@ -9,4 +9,6 @@ export const CurrencyPage = () => {
   );
 };
 
+
 export default CurrencyPage
+
