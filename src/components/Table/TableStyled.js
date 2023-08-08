@@ -1,16 +1,18 @@
 import styled from 'styled-components';
 
 export const Section = styled.section`
-  /* height: 100vh;
-  width: 100%;
 
-  background-size: 100% 100%; */
-  /* background-position: center; */
 `;
 
-
 export const TableContainer = styled.div`
-    padding: 20px;
+    height: 344px;
+    overflow: auto;
+    ::-webkit-scrollbar {
+    width: 0px;
+    display: none;
+  }
+`;
+export const TableListContainer = styled.div`
     ul {
         margin: 0;
         padding: 0;
@@ -25,16 +27,15 @@ export const TableContainer = styled.div`
 `;
 
 export const StyledTable = styled.table`
+margin: 0;
   width: 100%;
   border-radius: 8px;
-  overflow: auto;
   border-collapse: collapse;
   color: #ffffff;
   th,
   td {
     color: #fbfbfb;
   }
-
 
   @media screen and (max-width: 767.5px) {
     display: flex;
@@ -63,30 +64,51 @@ export const StyledTable = styled.table`
     flex-direction: column;
  
   }
-    }
-  
+}
+
+  /* @media screen and (min-width: 768px) {
+    tbody {
+    display: block;
+    height: 292px;
+    overflow: auto;
+    ::-webkit-scrollbar {
+    width: 0px;
+    display: none;
+  }
+} */
+
+/* thead, tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed;
+}
+} */
+
   @media screen and (min-width: 768px) and (max-width: 1279px) {
   width: 704px;
 }
   
   @media screen and (min-width: 1280px) {
-  margin-left: 68px;
   width: 715px;
     }
 `;
 
 export const Thead = styled.thead`  
+
 @media screen and (max-width: 767.5px) {
 font-size: 16px;
 font-style: normal;
 font-weight: 600;
 line-height: normal;
 }
-     @media screen and (min-width: 768px) {
-        background: rgba(82, 59, 126, 0.60);
-        backdrop-filter: blur(50px);
-        border-radius: 8px;
-        
+  @media screen and (min-width: 768px) {
+  border-radius: 8px;
+  tr th {
+  background-color: rgba(82, 59, 126, 1);
+  backdrop-filter: blur(50px);
+  position: sticky;
+  top: 0;
+}
      }
 `;
 
@@ -107,13 +129,21 @@ export const ThDate = styled(Th)`
 
 export const Td = styled.td`
     text-align: left;
+    
+    &.income {
+    color: #FFB627;
+    }
+
+    &.expense {
+    color: #FF868D;
+    }
 
     @media screen and (max-width: 767.5px) {
     text-align: right;
     display: flex;
     justify-content: flex-end;
 
-    height: 21.6px;
+    height: 18.4px;
     
 
     font-size: 16px;
@@ -130,7 +160,26 @@ export const Td = styled.td`
         }
 `;
 
+export const TdSum = styled(Td)`
+padding-right: 36px;
+text-align: right;
+`;
+
+export const ThSum = styled(Th)`
+text-align: right;
+`;
+
+export const TdType = styled(Td)`
+  padding-left: 14px;
+`;
+
+export const ThEdit = styled(Th)`
+padding-right: 0;
+text-align: right;
+`;
+
 export const ThLast = styled.th`
+    width: 77px;
     border-radius: 0 8px 8px 0;
 `;
 
@@ -206,4 +255,3 @@ export const DeleteBtn = styled(CommonBtnStyles)`
   background: var(--button-gradient, linear-gradient(167deg, #FFC727 0%, #9E40BA 61.46%, #7000FF 90.54%));
     box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.20);
 `;
-
