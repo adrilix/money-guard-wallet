@@ -33,6 +33,7 @@ export const getTransactionsThunk = createAsyncThunk("transactions/getTransactio
 export const addTransactionsThunk = createAsyncThunk("transactions/addTransactionsThunk",
     async (formData, { rejectWithValue }) => {
         try {
+            console.log(formData);
             const newTransaction = await addTransactionsRequest(formData);
             return newTransaction;
         } catch (error) {
@@ -59,6 +60,7 @@ export const deleteTransactionsThunk = createAsyncThunk("transactions/deleteTran
     });
 
 export const selectTransactionsSummary = (state) => state.transactions.summary;
+export const selectCategoriesSummaryName = (state) => state.transactions.summary.categoriesSummary.name;
 export const selectTransactionsCategories = (state) => state.transactions.categories;
 export const selectAllTransactions = (state) => state.transactions.transactions;
 
