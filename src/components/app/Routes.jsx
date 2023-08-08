@@ -24,18 +24,37 @@ const UserRoutes = () => {
   return (
     <Suspense fallback={<LoaderSpinner />}>
       <Routes>
-        <Route path="*" element={<NotPage />} />
         <Route element={<PublicRoute />}>
           <Route path="/" element={<LoginPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
         </Route>
-        <Route element={<PrivateRoute />}>
-          <Route path="home" element={<DashboardPage />}>
-            <Route path="currency" element={<CurrencyPage />} />
-            <Route path="statistic" element={<SummaryPage />} />
-          </Route>
+        <Route
+          path="/statistic"
+          element={
+            <PrivateRoute>
+              <SummaryPage />
+            </PrivateRoute>
+          }
+        />{' '}
+        <Route
+          path="/home"
+          element={
+            <PrivateRoute>
+              <DashboardPage />
+            </PrivateRoute>
+          }
+        >
+          <Route
+            path="currency"
+            element={
+              <PrivateRoute>
+                <CurrencyPage />
+              </PrivateRoute>
+            }
+          />
         </Route>
+        <Route path="*" element={<NotPage />} />
       </Routes>
     </Suspense>
   );

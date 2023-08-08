@@ -79,6 +79,7 @@ export const refreshAuthThunk = createAsyncThunk(
     const token = state.auth.token;
     try {
       setToken(token);
+      console.log('token: ', token);
       const data = await getUsersCurrentDataRequest();
       return data;
     } catch (error) {
