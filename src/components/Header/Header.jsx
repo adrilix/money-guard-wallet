@@ -8,18 +8,8 @@ import { LogOutModal } from 'components/LogOutModal/LogOutModal';
 
 function Header() {
   const name = useSelector(selectAuthData);
-  
 const [showIt, setShowIt] = useState(false);
-  const dispatch = useDispatch();
-
-  if (name === null) {
-    console.log(123);
-  } else {
-    console.log(999);
-  }
-
-  console.log(name);
-  
+  const dispatch = useDispatch();  
 
   const showLogOutModal = () => {
     setShowIt(true);

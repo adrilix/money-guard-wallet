@@ -15,6 +15,13 @@ export const customSelect = {
         border: '1px solid var(--white-60, rgba(255, 255, 255, 0.60))',
               borderRadius: '8px',
   }),
+    singleValue: (provided) => ({
+    ...provided,
+    color: '#FBFBFB',
+    fontFamily: 'Poppins',
+      fontSize: '16px',
+    marginLeft: '20px',
+  }),
   control: (provided) => ({
       ...provided,
     background: 'rgba(74, 86, 226, 0.10)',
@@ -43,13 +50,12 @@ option: (provided, { isFocused }) => ({
       textAlign: 'center',
       borderRadius: '8px',
     margin: '0',
+    background:'linear-gradient(360deg, rgba(83, 61, 186, 1) 0%, rgba(80, 48, 154, 1) 35.94%, rgba(106, 70, 165, 1) 61.04%, rgba(133, 93, 175, 1) 100%)'
     
   }),
     menuList: (provided) => ({
         ...provided,
         borderRadius: '8px',
-    background:
-      'var(--small-form-color, linear-gradient(360deg, rgba(83, 61, 186, 0.70) 0%, rgba(80, 48, 154, 0.70) 35.94%, rgba(106, 70, 165, 0.52) 61.04%, rgba(133, 93, 175, 0.13) 100%))',
     boxShadow: '0px 4px 60px 0px rgba(0, 0, 0, 0.25)',
         backdropFilter: 'blur(50px)',
         maxHeight: '157px',
@@ -70,18 +76,8 @@ option: (provided, { isFocused }) => ({
     },
   }),
 
-    dropdownIndicator: (provided, { isFocused }) => ({
-      ...provided,
-      padding: '0px 5px 0px 0px',
-      color: '#FBFBFB',
-      transform: `rotate(${isFocused ? '180deg' : '0deg'})`,
-      fontSize: '15px',
-    }),
-
-
   placeholder: (provided) => ({
     ...provided,
-    paddingLeft: '18px',
     paddingBottom: '2px',
     color: '#FBFBFB',
     fontFamily: 'Poppins',
