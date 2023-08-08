@@ -1,11 +1,10 @@
-import React from 'react'
-
-function CurrencyPage() {
+export const CurrencyPage = () => {
   return (
     <div>
-      this is Currency page
+      <img
+        src={require('../../svg/currency-tablet.png')}
+        alt="currency schedule"
+      />
     </div>
-  )
-}
-
-export default CurrencyPage
+  );
+};

@@ -5,6 +5,7 @@ import {
   refreshAuthThunk,
   registerThunk,
 } from './registrationThunks';
+import { addTransactionsThunk } from 'redux/transactionsReduser/transactionsThunks';
 
 const initialState = {
   isLoading: false,
@@ -78,6 +79,11 @@ const authSlice = createSlice({
       .addCase(refreshAuthThunk.rejected, (state, { error }) => {
         state.isLoading = false;
         state.error = error;
+      })
+      //------------------------- Refresh Balance ----------------------------------      
+      .addCase(addTransactionsThunk.fulfilled, (state, action) => {
+        console.log('action: ', action);
+        state.userData.balance = action.payload.balanceAfter
       }),
 });
 

@@ -25,6 +25,7 @@ const Currency = () => {
   const dispatch = useDispatch();
   const selectedCurrency = useSelector(currencySelector);
   const isLoading = useSelector(isLoadingSelector);
+  const token = useSelector(state => state.auth.token);
 
   const updateLastUpdatedTime = () => {
     const newTime = Date.now();
@@ -32,6 +33,7 @@ const Currency = () => {
   };
 
   useEffect(() => {
+    if (!token) return;
     const lastUpdatedTime = localStorage.getItem('lastUpdatedTime');
 
     const isHourPassed = () => {
@@ -46,7 +48,7 @@ const Currency = () => {
     } else {
       setCurrency(selectedCurrency);
     }
-  }, [dispatch, selectedCurrency]);
+  }, [dispatch, selectedCurrency, token]);
   console.log(currency);
 
   // const isMobile = useMediaQuery({ maxWidth: 767 });

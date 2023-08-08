@@ -33,6 +33,7 @@ export const getTransactionsThunk = createAsyncThunk("transactions/getTransactio
 export const addTransactionsThunk = createAsyncThunk("transactions/addTransactionsThunk",
     async (formData, { rejectWithValue }) => {
         try {
+            console.log(formData);
             const newTransaction = await addTransactionsRequest(formData);
             return newTransaction;
         } catch (error) {
