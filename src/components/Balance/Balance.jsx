@@ -21,7 +21,9 @@ export const Balance = () => {
           <StyledBalanceLabel>Your balance</StyledBalanceLabel>
           <StyledBalance>
             <span>₴ </span>
+
             {balance ? <>{balance.balance}</> : ""}
+
           </StyledBalance>
         </StyledBalanceBox>
       )}
@@ -30,7 +32,9 @@ export const Balance = () => {
           <StyledBalanceLabel>Your balance</StyledBalanceLabel>
           <StyledBalance>
             <span>₴ </span>
+
             {balance ? <>{balance.balance}</> : ""}
+
           </StyledBalance>
         </StyledBalanceBox>
       )}

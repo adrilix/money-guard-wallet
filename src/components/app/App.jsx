@@ -11,7 +11,9 @@ function App() {
   
   return (
     <div>
+
       <UserRoutes />
+
 
       {/* <EditTransactionModal />
       <AddTransactionModal /> */}
