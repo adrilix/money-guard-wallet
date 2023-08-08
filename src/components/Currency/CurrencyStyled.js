@@ -67,12 +67,12 @@ export const StyledTd = styled.span`
   font-weight: 400;
   line-height: calc(24 / 16);
   text-align: center;
-  width: 74px;
+  width: 62px;
   &:last-child {
     width: 42px;
   }
   &:first-child {
-    width: 73px;
+    width: 65px;
   }
 `;
 

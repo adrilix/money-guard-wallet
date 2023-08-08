@@ -5,7 +5,7 @@ import { StyledNavAndBalanceBox, StyledSideBox } from './SideBar.styled';
 import { useMediaQuery } from 'react-responsive';
 
 export const SideBar = () => {
-  const isMobile = useMediaQuery({ maxWidth: 767 });
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 767 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1279 });
   const isDesktop = useMediaQuery({ minWidth: 1280 });
   return (
@@ -39,11 +39,7 @@ export const SideBar = () => {
       )}
       {isMobile && (
         <StyledSideBox>
-          <StyledNavAndBalanceBox>
-            <Navigation />
-            <Balance />
-          </StyledNavAndBalanceBox>
-          <Currency />
+          <Navigation />
         </StyledSideBox>
       )}
     </div>

@@ -19,7 +19,7 @@ export const Balance = () => {
           <StyledBalanceLabel>Your balance</StyledBalanceLabel>
           <StyledBalance>
             <span>₴ </span>
-            {balance.balance}
+            {balance?.length && balance.balance}
           </StyledBalance>
         </StyledBalanceBox>
       )}
@@ -28,7 +28,7 @@ export const Balance = () => {
           <StyledBalanceLabel>Your balance</StyledBalanceLabel>
           <StyledBalance>
             <span>₴ </span>
-            {balance.balance}
+            {balance?.length && balance.balance}
           </StyledBalance>
         </StyledBalanceBox>
       )}
