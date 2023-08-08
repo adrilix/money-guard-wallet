@@ -64,7 +64,6 @@ const ModalAddTransaction = ({ closeModal }) => {
       initialValues={{
         date: new Date(),
         type: isChecked,
-
         comment: '',
         value: '',
         category: null,
@@ -83,7 +82,6 @@ const ModalAddTransaction = ({ closeModal }) => {
             'Transaction value can be a maximum of 16 characters',
             val => val.toString().length <= 16
           )
-
           .required('Please provide transaction value.'),
         date: date()
           .transform(dateTransformer)
@@ -108,7 +106,6 @@ const ModalAddTransaction = ({ closeModal }) => {
             onClick={handleCheckboxChange}
             type="radio"
           />
-
           {!isChecked && (
             <InputWrapper>
               <CategorySelect
@@ -125,7 +122,6 @@ const ModalAddTransaction = ({ closeModal }) => {
               <ErrorText name="category" component="div" />
             </InputWrapper>
           )}
-
           <TwoColumnRow>
             <InputWrapper>
               <BaseInput
@@ -151,7 +147,6 @@ const ModalAddTransaction = ({ closeModal }) => {
               <CiCalendarDate />
             </CalendarWrapper>
           </TwoColumnRow>
-
           <InputWrapper>
             <Textarea
               placeholder="Comment"
