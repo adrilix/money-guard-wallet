@@ -12,75 +12,69 @@ import {
   InputWrapper,
   TransactionTypeDiv,
   TwoColumnRow,
-  placeholderStyles,
 } from './ModalAddTransactionStyled';
-import CategorySelect from 'components/CategorySelect/CategorySelect';
+
 import DatetimePicker from 'components/DatetimePicker/DatetimePicker';
 import { CiCalendarDate } from 'react-icons/ci';
 import Textarea from 'components/TextArea/TextArea';
-import { useDispatch, useSelector } from 'react-redux';
-import { patchTransactionsThunk } from 'redux/transactionsReduser/transactionsThunks';
-import { object, string, date, bool, mixed, number } from 'yup';
-import { customStyles } from 'components/CategorySelect/CategorySelectStyled';
+import { useDispatch } from 'react-redux';
+import {
+  getTransactionsThunk,
+  patchTransactionsThunk,
+} from 'redux/transactionsReduser/transactionsThunks';
+import { object, string, date, number } from 'yup';
 
-const options = [
-  { value: 'main expenses', label: 'Main expenses' },
-  { value: 'products', label: 'Products' },
-  { value: 'car', label: 'Car' },
-  { value: 'self care', label: 'Self care' },
-  { value: 'child care', label: 'Child care' },
-  { value: 'household products', label: 'Household products' },
-  { value: 'education', label: 'Education' },
-  { value: 'leisure', label: 'Leisure' },
-  { value: 'other expenses', label: 'Other expenses' },
-  { value: 'entertainment', label: 'Entertainment' },
-];
-
-const ModalEdit = ({ closeModal }) => {
+// const options = [
+//   { value: 'main expenses', label: 'Main expenses' },
+//   { value: 'products', label: 'Products' },
+//   { value: 'car', label: 'Car' },
+//   { value: 'self care', label: 'Self care' },
+//   { value: 'child care', label: 'Child care' },
+//   { value: 'household products', label: 'Household products' },
+//   { value: 'education', label: 'Education' },
+//   { value: 'leisure', label: 'Leisure' },
+//   { value: 'other expenses', label: 'Other expenses' },
+//   { value: 'entertainment', label: 'Entertainment' },
+// ];
+const ModalEdit = ({ closeModal, item }) => {
   const dispatch = useDispatch();
-  const selectedTransactionEdit = useSelector(
-    state => state.transactions.transactions
-  );
 
-  const formatDate = inputString => {
-    const date = moment(inputString, 'DD MM YYYY HH:mm:ss GMTZZ');
-    const formattedDate = date.format('DD.MM.YYYY');
-    return formattedDate;
-  };
   const dateTransformer = (_, originalValue) => {
     const parsedDate = moment(originalValue, 'DD.MM.YYYY');
     return parsedDate.isValid() ? parsedDate.toDate() : new Date('');
   };
   const handleSubmit = values => {
-    dispatch(
-      patchTransactionsThunk({
-        id: selectedTransactionEdit._id,
-        updatedData: {
-          amount: values.value,
-          comment: values.comment,
-          date: values.date,
-          category: values.category.label,
-          isIncome: selectedTransactionEdit.isIncome,
-        },
-      })
-    );
+    const data = {
+      id: item.id,
+      updatedData: {
+        transactionDate: new Date(values.date),
+        type: item.type,
+        categoryId: values.category.categoryId,
+        comment: values.comment,
+        amount: Number(values.value),
+      },
+    };
+
+    dispatch(patchTransactionsThunk(data))
+      .unwrap()
+      .then(() => dispatch(getTransactionsThunk()));
   };
   return (
     <Formik
       initialValues={{
-        type: selectedTransactionEdit.isIncome,
-        category: selectedTransactionEdit.category,
-        value: selectedTransactionEdit.amount,
-        date: `${formatDate(selectedTransactionEdit.date)}`,
-        comment: selectedTransactionEdit.comment,
+        date: new Date(item.transactionDate),
+        type: item.type,
+        category: item.categoryId,
+        comment: item.comment,
+        value: item.amount,
       }}
       validationSchema={object({
-        type: bool(),
-        category: mixed().when('type', {
-          is: type => !type,
-          then: () => mixed().required('Please choose transaction category.'),
-          otherwise: () => mixed().notRequired(),
-        }),
+        //   type: bool(),
+        //   category: mixed().when('type', {
+        //     is: type => !type,
+        //     then: () => mixed().required('Please choose transaction category.'),
+        //     otherwise: () => mixed().notRequired(),
+        //   }),
         value: number()
           .typeError('Transaction value must be a number')
           .test(
@@ -107,21 +101,20 @@ const ModalEdit = ({ closeModal }) => {
         <FormikForm>
           <Heading>Edit transaction</Heading>
           <TransactionTypeDiv>
-            <IncomeSpan>Income</IncomeSpan>
-            <ExpenseSpan>Expense</ExpenseSpan>
+            <IncomeSpan $active={item.type === 'INCOME'}>Income</IncomeSpan>
+            <ExpenseSpan $active={item.type === 'EXPENSE'}>Expense</ExpenseSpan>
           </TransactionTypeDiv>
 
-          <InputWrapper>
+          {/* <InputWrapper>
             <CategorySelect
-              value={values.category}
-              placeholder={selectedTransactionEdit.category}
+              placeholder={selectedTransactionToEdit.category}
               name="category"
               onChange={category => setFieldValue('category', category)}
               options={options}
               styles={{ ...customStyles, ...placeholderStyles }}
             />
             <ErrorText name="category" component="div" />
-          </InputWrapper>
+          </InputWrapper> */}
 
           <TwoColumnRow>
             <InputWrapper>

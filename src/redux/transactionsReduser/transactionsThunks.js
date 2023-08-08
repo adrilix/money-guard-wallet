@@ -1,6 +1,12 @@
-import { createAsyncThunk } from "@reduxjs/toolkit"
-import { getTransactionCategoriesRequest } from "services/api/transactionCategoriesApi";
-import { addTransactionsRequest, deleteTransactionsRequest, getTransactionsRequest, getTransactionsSummaryRequest, patchTransactionsRequest } from "services/api/transactionsApi";
+import { createAsyncThunk } from '@reduxjs/toolkit';
+import { getTransactionCategoriesRequest } from 'services/api/transactionCategoriesApi';
+import {
+  addTransactionsRequest,
+  deleteTransactionsRequest,
+  getTransactionsRequest,
+  getTransactionsSummaryRequest,
+  patchTransactionsRequest,
+} from 'services/api/transactionsApi';
 
 export const getTransactionsSummaryThunk = createAsyncThunk("transactions/getTransactionsSummaryThunk",
     async (params, { rejectWithValue }) => {
@@ -40,15 +46,17 @@ export const addTransactionsThunk = createAsyncThunk("transactions/addTransactio
             return rejectWithValue(error.message);
         }
     });
-export const patchTransactionsThunk = createAsyncThunk("transactions/patchTransactionsThunk",
-    async (transactionId, { rejectWithValue }) => {
-        try {
-            const editTransaction = await patchTransactionsRequest(transactionId);
-            return editTransaction;
-        } catch (error) {
-            return rejectWithValue(error.message);
-        }
-    });
+export const patchTransactionsThunk = createAsyncThunk(
+  'transactions/patchTransactionsThunk',
+  async ({ id, updatedData }, { rejectWithValue }) => {
+    try {
+      const editTransaction = await patchTransactionsRequest(id, updatedData);
+      return editTransaction;
+    } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
 export const deleteTransactionsThunk = createAsyncThunk("transactions/deleteTransactionsThunk",
     async (transactionId, { rejectWithValue }) => {
         try {
@@ -64,5 +72,6 @@ export const selectCategoriesSummaryName = (state) => state.transactions.summary
 export const selectTransactionsCategories = (state) => state.transactions.categories;
 export const selectAllTransactions = (state) => state.transactions.transactions;
 
-export const selectTransactionsIsLoadingStatus = (state) => state.transactions.isLoading;
-export const selectTransactionsErrorStatus = (state) => state.transactions.error;
+export const selectTransactionsIsLoadingStatus = state =>
+  state.transactions.isLoading;
+export const selectTransactionsErrorStatus = state => state.transactions.error;
