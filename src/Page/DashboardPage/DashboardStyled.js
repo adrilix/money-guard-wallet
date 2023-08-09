@@ -2,16 +2,40 @@ import styled from 'styled-components';
 
 export const Box = styled.div`
 
+
+  position: relative;
+
+  @media screen and (max-width: 768px){
+    padding: 0 20px;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+
   @media screen and (min-width: 768px) and (max-width: 1279px) {
+    padding: 0 32px;
+    max-width: 704px;
+    margin: 0 auto;
+
     display: block;
-       margin: auto;
+
  
 }
   @media screen and (min-width: 1280px) {
+   padding-right: 16px;
+    width: 1264px;
+    margin: 0 auto;
     display:flex;
     gap:69px;
 }
 `;
+
+export const BtnRightCorner = styled.div`
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 10;
+`;
+
 
 export const BoxTableList = styled.div`
 

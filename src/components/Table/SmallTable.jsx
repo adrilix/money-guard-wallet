@@ -4,16 +4,19 @@ import { Section, TableListContainer, StyledTable, Thead, TdDate, Td, DeleteBtn 
 import { deleteTransactionsThunk, getTransactionsThunk } from 'redux/transactionsReduser/transactionsThunks';
 import AddTransactionModal from 'components/ModalAddTransaction/AddTransactionModal';
 import EditTransactionModal from 'components/ModalEdit/EditTransactionModal';
+import { refreshBalanceThunk } from 'redux/registrationReducer/registrationThunks';
 
 const TableList = () => {
   const tableData = useSelector((state) => state.transactions.transactions);
   const dispatch = useDispatch();
 
   const handleDelete = (transactionId) => {
-    dispatch(deleteTransactionsThunk(transactionId)).unwrap().then(() =>
-      dispatch(getTransactionsThunk())
-    );
+    dispatch(deleteTransactionsThunk(transactionId))
+    .unwrap()
+    .then(() =>dispatch(getTransactionsThunk()))
+    .then(() => dispatch(refreshBalanceThunk()));
   };
+
 
   const categoryNames = {
     'c9d9e447-1b83-4238-8712-edc77b18b739': 'Main expenses',

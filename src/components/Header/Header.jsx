@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Box, ExitButton, ExitIcon, ExitText, HeaderContainer, Logo, LogoBox, LogoName, Name, Stick } from './HeaderStyled';
+import { Div, HeaderDiv, Box, ExitButton, ExitIcon, ExitText, HeaderContainer, Logo, LogoBox, LogoName, Name, Stick } from './HeaderStyled';
 import logo from '../../svg/logo.svg';
 import exit from '../../svg/exit.svg';
 import { useDispatch, useSelector } from 'react-redux';
@@ -28,8 +28,10 @@ function Header() {
     });
   };
 
-    return (
-      <> <HeaderContainer>
+  return (
+      <Div>
+       <HeaderContainer>
+        <HeaderDiv>
         <LogoBox onClick={scrollToTop} ref={buttonRef}>
           <Logo src={logo} alt="logo" />
           <LogoName>Money Guard</LogoName>
@@ -41,9 +43,11 @@ function Header() {
             <ExitIcon src={exit} alt="exit" />
             <ExitText>Exit</ExitText>
           </ExitButton>
-        </Box>
+          </Box>
+          </HeaderDiv>
       </HeaderContainer>
-        <LogOutModal showIt={showIt} setShowIt={setShowIt} handleLogOut={handleLogOut} /></>
+      <LogOutModal showIt={showIt} setShowIt={setShowIt} handleLogOut={handleLogOut} />
+      </Div>
     );
   }
 export default Header

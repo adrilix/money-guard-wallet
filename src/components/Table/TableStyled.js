@@ -44,9 +44,12 @@ margin: 0;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.10);
 
-    th,
+    th {
+      padding: 12px 0 12px 20px;
+    }
+
     td {
-    padding: 12px 20px;
+    padding: 12px 20px 12px 0;
   }
 
     th:not(:last-child),
@@ -65,24 +68,6 @@ margin: 0;
  
   }
 }
-
-  /* @media screen and (min-width: 768px) {
-    tbody {
-    display: block;
-    height: 292px;
-    overflow: auto;
-    ::-webkit-scrollbar {
-    width: 0px;
-    display: none;
-  }
-} */
-
-/* thead, tbody tr {
-    display: table;
-    width: 100%;
-    table-layout: fixed;
-}
-} */
 
   @media screen and (min-width: 768px) and (max-width: 1279px) {
   width: 704px;
@@ -152,7 +137,7 @@ export const Td = styled.td`
     line-height: normal;
     letter-spacing: 0.32px;
     &:last-child {
-        height: 24.8px;
+        height: 24.7px;
     }
     }
     @media screen and (min-width: 768px) {
