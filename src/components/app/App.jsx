@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import UserRoutes from './Routes';
 import { useDispatch, useSelector } from 'react-redux';
 import { refreshAuthThunk } from 'redux/registrationReducer/registrationThunks';
+import { ToastContainer } from 'react-toastify';
 // import { getTransactionCategoriesThunk, getTransactionsThunk } from 'redux/transactionsReduser/transactionsThunks';
 
 function App() {
@@ -20,6 +21,7 @@ function App() {
 
       {/* <EditTransactionModal />
       <AddTransactionModal /> */}
+      <ToastContainer />
     </div>
   );
 }

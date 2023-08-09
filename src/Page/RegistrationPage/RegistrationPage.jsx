@@ -1,5 +1,5 @@
 import React from 'react';
-import { ToastContainer } from 'react-toastify';
+
 import logoImg from '../../svg/logo.svg';
 
 import { LoginSection, LoginStyled } from './registerPage.styled';
@@ -35,7 +35,6 @@ const RegisterPage = () => {
           <RegisterForm onSubmit={onSignUp} />
         </div>
       </LoginStyled>
-      <ToastContainer />
     </LoginSection>
   );
 };

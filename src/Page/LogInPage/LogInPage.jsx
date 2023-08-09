@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import UseAuth from 'HOC/useAuth';
 import { Navigate } from 'react-router-dom';
 import { logInThunk } from 'redux/registrationReducer/registrationThunks';
-import { ToastContainer } from 'react-toastify';
+
 const LoginPage = () => {
   const dispatch = useDispatch();
   const onLogin = data => {
@@ -28,7 +28,6 @@ const LoginPage = () => {
           <LoginForm onSubmit={onLogin} />
         </div>
       </LoginStyled>
-      <ToastContainer />
     </LoginSection>
   );
 };
