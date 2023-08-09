@@ -5,11 +5,36 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: #101010;
+
+  width: 100dvw;
+  height: 100dvh;
   background-image: url(./svg/Gradient2.png);
+
+
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-color: rgba(16, 16, 16, 1);
 }
 
 code {
   font-family: 'Poppins', sans-serif;
 }
 
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+p,
+ul,
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}

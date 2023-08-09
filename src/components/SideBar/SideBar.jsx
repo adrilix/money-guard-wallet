@@ -6,7 +6,7 @@ import { useMediaQuery } from 'react-responsive';
 
 export const SideBar = () => {
   const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 767 });
-  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1279 });
+  const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1279.7 });
   const isDesktop = useMediaQuery({ minWidth: 1280 });
   return (
     <div>
@@ -25,8 +25,6 @@ export const SideBar = () => {
           display="flex"
           flexDirection="row"
           gap="32px"
-          padL="32px"
-          padR="32px"
           marB="40px"
           w="768px"
         >
