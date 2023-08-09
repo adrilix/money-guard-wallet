@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
   Chart as ChartJS,
   ArcElement,
@@ -20,8 +20,6 @@ function randomColor() {
   }
   return color;
 }
-
-
 
 const ChartComponent = ({ data }) => {
   if (!data || !data.categoriesSummary || data.categoriesSummary.length === 0) {

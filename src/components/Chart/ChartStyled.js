@@ -18,22 +18,34 @@ export const Diagramm = styled.div`
   align-items: center;
   flex-direction: column;
   position: relative;
-  height: 100%;
-  width: 100%;
+  min-height: 288px;
+  min-width: 288px;
   padding: 0px;
   flex: 1 1;
   align-self: start;
   justify-self: start;
+      @media (max-width: 1023px) {
+       min-height: 336px;
+    min-width: 336px;
+    }
+       @media (max-width: 767px) {
+    min-height: 280px;
+    min-width: 280px;
+  }
   canvas {
     width: 100% !important;
     height: 100% !important;
-    max-width: 390px;
-    min-height: 288px;
-    min-width: 288px;
-    max-height: 500px;
-    @media (min-width: 768px) {
-      max-width: calc(100vh - 80px - 214px - 114px);
-      max-height: calc(100vh - 80px - 350px);
+    max-width: 288px;
+    max-height: 288px;
+    @media (max-width: 1023px) {
+       min-height: 336px;
+    min-width: 336px;
     }
+       @media (max-width: 767px) {
+    min-height: 280px;
+    min-width: 280px;
   }
+  }
+
+
 `;
