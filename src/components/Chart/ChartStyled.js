@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export const Total = styled.div`
   font-size: calc(14px + (100vw - 288px) * 0.01);
   font-weight: 700;
-  color: var(--white, #fbfbfb);
+  color: var(--white);
   font-style: normal;
   line-height: normal;
   position: absolute;

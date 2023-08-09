@@ -5,7 +5,7 @@
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
-  background: #101010;
+  background: var(--background);
   background-image: url(./svg/Gradient2.png);
 }
 

@@ -22,7 +22,7 @@ export const LogoBox = styled.button`
   display: flex;
   align-items: center;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0); /* Прозорий фон (встановіть кольори на свій розсуд) */
+  background: rgba(255, 255, 255, 0);
   border: none;
   @media (max-width: 767px) {
     margin:20px;
