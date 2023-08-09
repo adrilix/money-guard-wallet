@@ -16,8 +16,7 @@ gap:32px;
 `
 
 export const Statistics = s.h1`
-color: var(--white, #FBFBFB);
-font-family: Poppins;
+color: var(--white);
 font-size: 30px;
 font-weight: 400;
 `

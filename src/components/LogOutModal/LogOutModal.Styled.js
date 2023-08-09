@@ -5,8 +5,7 @@ import mobileBg from '../../svg/RectangleMobile.png'
 
 
 export const LogoTitle = styled.h2`
-  color: #fbfbfb;
-  font-family: Poppins;
+  color: var(--white);
   font-size: 26.963px;
   margin-top: 0;
   @media (max-width: 767px) {
@@ -60,7 +59,6 @@ possition:absolute;
 export const Title = styled.p`
 
 color: #FFF;
-font-family: Poppins;
 font-size: 18px;
 margin-top:52px;
     @media (max-width: 767px) {
@@ -86,13 +84,11 @@ export const ButtonLogOut = styled.button`
 
   border-radius: 20px;
   background: var(
-    --button-gradient,
-    linear-gradient(167deg, #ffc727 0%, #9e40ba 61.46%, #7000ff 90.54%)
+    --button-gradient
   );
   box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
   color: #fff;
   text-align: center;
-  font-family: Poppins;
   font-size: 18px;
   letter-spacing: 1.8px;
   text-transform: uppercase;
@@ -125,7 +121,6 @@ export const ButtonCancel = styled.button`
   box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
   color: #623f8b;
   text-align: center;
-  font-family: Poppins;
   font-size: 18px;
   letter-spacing: 1.8px;
   text-transform: uppercase;
