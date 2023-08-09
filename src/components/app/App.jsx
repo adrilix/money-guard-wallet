@@ -10,11 +10,12 @@ import { ToastContainer } from 'react-toastify';
 function App() {
   const dispatch = useDispatch();
   const isLogin = useSelector(state => state.auth.isLogin);
+  const token = useSelector(state => state.auth.token);
   
   useEffect(() => {
-    if (isLogin) return;
-    dispatch(refreshAuthThunk());
-  }, [dispatch, isLogin]);
+    if (!isLogin && token)
+    {dispatch(refreshAuthThunk())}
+  }, [dispatch, isLogin, token]);
 
   return (
     <div>
