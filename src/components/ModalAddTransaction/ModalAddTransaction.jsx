@@ -18,7 +18,6 @@ import Textarea from 'components/TextArea/TextArea';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   addTransactionsThunk,
-  getTransactionsThunk,
   selectTransactionsCategories,
 } from 'redux/transactionsReduser/transactionsThunks';
 import { object, string, date, bool, mixed, number } from 'yup';

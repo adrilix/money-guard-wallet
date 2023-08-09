@@ -15,7 +15,7 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 const ChartComponent = ({ data }) => {
   if (!data || !data.categoriesSummary || data.categoriesSummary.length === 0) {
 
-    return <img src={lepr} width={270}/>;
+    return <img alt="no transaction" src={lepr} width={270}/>;
   }
 
  const income = data.incomeSummary;
