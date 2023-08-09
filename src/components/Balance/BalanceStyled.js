@@ -23,7 +23,7 @@ export const StyledBalanceBox = styled.div`
 
 export const StyledBalanceLabel = styled.span`
   color: var(--white-40, rgba(255, 255, 255, 0.4));
-  font-family: 'Poppins Bold', sans-serif;
+  /* font-family: 'Poppins Bold', sans-serif; */
   font-size: 12px;
   font-style: normal;
   font-weight: 700;
@@ -33,7 +33,7 @@ export const StyledBalanceLabel = styled.span`
 
 export const StyledBalance = styled.span`
   color: var(--white, #fbfbfb);
-  font-family: 'Poppins Bold';
+  /* font-family: 'Poppins Bold'; */
   font-size: 30px;
   font-style: normal;
   font-weight: 700;

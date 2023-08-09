@@ -1,6 +1,12 @@
 import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import { Button, ButtonWrapper, ModalBackdrop, ModalContent, Title } from './LogOutModal.Styled';
+import {
+  Button,
+  ButtonWrapper,
+  ModalBackdrop,
+  ModalContent,
+  Title,
+} from './LogOutModal.Styled';
 
 export const LogOutModal = ({ showIt, setShowIt, handleLogOut }) => {
   useEffect(() => {
@@ -10,7 +16,7 @@ export const LogOutModal = ({ showIt, setShowIt, handleLogOut }) => {
     return () => document.removeEventListener('keydown', handleClose);
   }, [showIt]);
 
-  const handleClose = (event) => {
+  const handleClose = event => {
     if (event.code === 'Escape' || event.target === event.currentTarget) {
       hideLogOutModal();
     }
@@ -21,18 +27,19 @@ export const LogOutModal = ({ showIt, setShowIt, handleLogOut }) => {
   };
 
   return createPortal(
-    showIt && (<>
+    showIt && (
+      <>
         <ModalBackdrop onClick={hideLogOutModal} />
         <ModalContent>
-              <Title>Log out from Wallet?</Title>
-              <ButtonWrapper>
-          <Button type="button" onClick={handleLogOut}>
-            LOG OUT
-          </Button>
-          <Button type="button" onClick={hideLogOutModal}>
-            CANCEL
+          <Title>Are you sure you want to log out?</Title>
+          <ButtonWrapper>
+            <Button type="button" onClick={handleLogOut}>
+              LOG OUT
             </Button>
-            </ButtonWrapper>
+            <Button type="button" onClick={hideLogOutModal}>
+              CANCEL
+            </Button>
+          </ButtonWrapper>
         </ModalContent>
       </>
     ),

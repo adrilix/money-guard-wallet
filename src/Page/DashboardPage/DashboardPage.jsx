@@ -14,14 +14,14 @@ import {
 } from 'redux/transactionsReduser/transactionsThunks';
 
 function DashboardPage() {
-  const isLogin = useSelector(state => state.auth.isLogin);
+  // const isLogin = useSelector(state => state.auth.isLogin);
 
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    if (isLogin) return;
-    dispatch(refreshAuthThunk());
-  }, [dispatch, isLogin]);
+  // useEffect(() => {
+  //   if (isLogin) return;
+  //   dispatch(refreshAuthThunk());
+  // }, [dispatch, isLogin]);
 
   useEffect(() => {
     dispatch(getTransactionCategoriesThunk());
@@ -33,11 +33,10 @@ function DashboardPage() {
       <Header />
       <SideBar />
       <Suspense fallback={null}>
-        <ButtonAdd />
         <Outlet />
       </Suspense>
 
-      <Table />
+      {/* <Table /> */}
     </div>
   );
 }
