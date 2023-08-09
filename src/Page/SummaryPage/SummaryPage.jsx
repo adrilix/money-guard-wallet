@@ -52,8 +52,9 @@ function SummaryPage() {
           <Statistics>Statistics</Statistics>
           <BoxDiagram>
             <ChartComponent data={result} />
-            <DatePicker />
-            <StatisticsTable />
+            <div> <DatePicker/>
+              <StatisticsTable transaction={result} />
+            </div>
           </BoxDiagram>
         </BoxStatistics>
       </Box>
