@@ -16,7 +16,8 @@ const CurrencyPage = lazy(() => import('../../Page/CurrencyPage'));
 const SummaryPage = lazy(() => import('../../Page/SummaryPage'));
 
 const UserRoutes = () => {
-  const isMobile = useMediaQuery({ maxWidth: 767 });
+
+  const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 767 });
   return (
     <Suspense fallback={<LoaderSpinner />}>
       <Routes>
@@ -44,7 +45,7 @@ const UserRoutes = () => {
           />
           {isMobile && (
             <Route
-              path="currency"
+              path="/currency"
               element={
                 <PrivateRoute>
                   <CurrencyPage />

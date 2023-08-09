@@ -80,11 +80,16 @@ const authSlice = createSlice({
         state.isLoading = false;
         state.error = error;
       })
-      //------------------------- Refresh Balance ----------------------------------      
+      //------------------------- Refresh Balance after add ----------------
       .addCase(addTransactionsThunk.fulfilled, (state, action) => {
         console.log('action: ', action);
         state.userData.balance = action.payload.balanceAfter
-      }),
+      })
+      //------------------------- Refresh Balance --------------------------
+      // .addCase(patchTransactionsThunk.fulfilled, (state, action) => {
+      //   console.log('action: ', action);
+      //   state.userData.balance = state.userData.balance + action.payload.balanceAfter
+      // })
 });
 
 export const authReducer = authSlice.reducer;

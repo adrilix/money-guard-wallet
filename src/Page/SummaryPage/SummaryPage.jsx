@@ -14,6 +14,7 @@
 //   Statistics,
 // } from './SummaruPage.styled';
 
+
 import { Balance } from 'components/Balance/Balance';
 import ChartComponent from 'components/Chart/Chart';
 import Currency from 'components/Currency/Currency';
@@ -33,24 +34,21 @@ import { useSelector } from 'react-redux';
 import { selectTransactionsSummary } from 'redux/transactionsReduser/transactionsThunks';
 import StatisticsTable from 'components/TransactionsList/TransactionsList';
 
+
 function SummaryPage() {
   const result = useSelector(selectTransactionsSummary);
+  const isLogin = useSelector(state => state.auth.isLogin);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (isLogin) return;
+    dispatch(refreshAuthThunk());
+  }, [dispatch, isLogin]);
 
   return (
     <Img>
       <Box>
-        {/* 
-//         <BoxStatistics>
-//           <Statistics>Statistics</Statistics>
-//           <BoxDiagram>
-//             <ChartComponent />
-//             <DatePicker /> */}
-        {/* 
-        <BoxNavigation>
-        <Navigation />
-          <Balance />
-          <Currency/>
-        </BoxNavigation> */}
         <BoxStatistics>
           <Statistics>Statistics</Statistics>
           <BoxDiagram>

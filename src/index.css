@@ -1,5 +1,7 @@
 @import-normalize; /* bring in normalize.css styles */
 @import url('./stylesheet/fonts.css');
+@import './stylesheet/vars.css';
+
 body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
@@ -10,3 +12,4 @@ body {
 code {
   font-family: 'Poppins', sans-serif;
 }
+
