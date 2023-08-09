@@ -49,7 +49,7 @@ const Currency = () => {
       setCurrency(selectedCurrency);
     }
   }, [dispatch, selectedCurrency, token]);
-  console.log(currency);
+
 
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const isTabletAndMobile = useMediaQuery({ minWidth: 768, maxWidth: 1279 });
