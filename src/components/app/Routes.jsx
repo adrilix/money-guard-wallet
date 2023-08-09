@@ -16,7 +16,6 @@ const CurrencyPage = lazy(() => import('../../Page/CurrencyPage'));
 const SummaryPage = lazy(() => import('../../Page/SummaryPage'));
 
 const UserRoutes = () => {
-
   const isMobile = useMediaQuery({ minWidth: 320, maxWidth: 767 });
   return (
     <Suspense fallback={<LoaderSpinner />}>
