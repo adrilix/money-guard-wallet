@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Oval } from 'react-loader-spinner';
 
 export const StyledBox = styled.div`
-  font-family: 'Poppins Regular', sans-serif;
+  /* font-family: 'Poppins Regular', sans-serif; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -46,7 +46,7 @@ export const StyledTBody = styled.div`
 
 export const StyledTh = styled.span`
   color: var(--white, #fbfbfb);
-  font-family: 'Poppins SemiBold';
+  /* font-family: 'Poppins SemiBold'; */
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -61,7 +61,7 @@ export const StyledTh = styled.span`
 export const StyledTd = styled.span`
   display: inline-block;
   color: var(--white, #fbfbfb);
-  font-family: 'Poppins Regular';
+  /* font-family: 'Poppins Regular'; */
   font-size: 16px;
   font-style: normal;
   font-weight: 400;

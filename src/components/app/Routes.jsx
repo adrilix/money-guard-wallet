@@ -11,6 +11,7 @@ import PrivateRoute from './PrivateRoutes/PrivateRotes';
 import PublicRoute from './PublicRoutes/PublicRoutes';
 import { LoaderSpinner } from 'components/Loader/Loader';
 import { Suspense, lazy } from 'react';
+import HomePage from 'Page/Home Page/HomePage';
 
 const LoginPage = lazy(() => import('../../Page/LogInPage'));
 const RegisterPage = lazy(() => import('../../Page/RegistrationPage'));
@@ -29,22 +30,24 @@ const UserRoutes = () => {
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
         </Route>
-        <Route
-          path="/statistic"
-          element={
-            <PrivateRoute>
-              <SummaryPage />
-            </PrivateRoute>
-          }
-        />{' '}
-        <Route
-          path="/home"
-          element={
-            <PrivateRoute>
-              <DashboardPage />
-            </PrivateRoute>
-          }
-        >
+        <Route element={<DashboardPage />}>
+          <Route
+            path="/home"
+            element={
+              <PrivateRoute>
+                <HomePage />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/statistic"
+            element={
+              <PrivateRoute>
+                <SummaryPage />
+              </PrivateRoute>
+            }
+          />
+
           <Route
             path="currency"
             element={
@@ -54,6 +57,7 @@ const UserRoutes = () => {
             }
           />
         </Route>
+
         <Route path="*" element={<NotPage />} />
       </Routes>
     </Suspense>

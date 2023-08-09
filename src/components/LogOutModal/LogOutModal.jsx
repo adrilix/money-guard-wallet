@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
+
 import { BoxLogo, Button, ButtonCancel, ButtonLogOut, ButtonWrapper, Logo, LogoTitle, ModalBackdrop, ModalContent, Title } from './LogOutModal.Styled';
 import logo from '../../svg/logo.svg';
 import { Box } from 'Page/SummaryPage/SummaruPage.styled';
@@ -12,7 +13,7 @@ export const LogOutModal = ({ showIt, setShowIt, handleLogOut }) => {
     return () => document.removeEventListener('keydown', handleClose);
   }, [showIt]);
 
-  const handleClose = (event) => {
+  const handleClose = event => {
     if (event.code === 'Escape' || event.target === event.currentTarget) {
       hideLogOutModal();
     }
@@ -23,8 +24,10 @@ export const LogOutModal = ({ showIt, setShowIt, handleLogOut }) => {
   };
 
   return createPortal(
-    showIt && (<>
+    showIt && (
+      <>
         <ModalBackdrop onClick={hideLogOutModal} />
+
       <ModalContent>
         <ButtonWrapper>
           <Logo src={logo} alt="logo" />

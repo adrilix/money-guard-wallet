@@ -8,14 +8,16 @@ export const CategoryWrapper = styled.div`
 export const customStyles = {
   container: provided => ({
     ...provided,
-    width: '100%',
-    maxWidth: '409px',
+    // width: 'auto',
+    // maxWidth: '409px',
+    width: 'auto',
     border: 'none',
-    fontFamily: 'Circe',
+    // fontFamily: 'Circe',
     fontSize: '18px',
   }),
   control: provided => ({
     ...provided,
+    backgroundColor: 'transparent',
     minHeight: '20px',
     border: 'none',
     borderBottom: '1px solid #e0e0e0',
@@ -25,9 +27,9 @@ export const customStyles = {
     cursor: 'pointer',
     '&:hover': { borderBottom: '1px solid #e0e0e0' },
 
-    '@media only screen and (max-width: 767px)': {
-      paddingLeft: '20px',
-    },
+    // '@media only screen and (max-width: 767px)': {
+    //   paddingLeft: '20px',
+    // },
   }),
   option: (provided, { isFocused }) => ({
     ...provided,
