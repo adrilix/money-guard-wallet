@@ -2,19 +2,35 @@ import s from 'styled-components'
 
 export const SelectBox = s.div`
     display: flex;
-    gap: 20px;`
+    gap: 20px;
+    @media (max-width: 1023px) {
+      gap:16px;
+  }
+      @media (max-width: 1023px) {
+      gap:20px;
+      flex-direction: column;
+  }
+  `
 
 export const customSelect = {
   container: (provided) => ({
     ...provided,
     width: '100%',
-    maxHeight:'50px',
-        maxWidth: '182px',
+    maxHeight: '50px',
+    maxWidth: '182px',
     fontFamily: 'Poppins',
-        fontSize: '16px',
-        border: '1px solid var(--white-60, rgba(255, 255, 255, 0.60))',
-              borderRadius: '8px',
+    fontSize: '16px',
+    border: '1px solid var(--white-60, rgba(255, 255, 255, 0.60))',
+    borderRadius: '8px',
+  '@media (max-width: 1023px)' : {
+      maxWidth: '160px',
+  },
+      '@media (max-width: 767px)' : {
+      maxWidth: '280px',
+  },
   }),
+
+  
     singleValue: (provided) => ({
     ...provided,
     color: '#FBFBFB',
@@ -30,6 +46,13 @@ export const customSelect = {
     border: 'none',
     boxShadow: 'none',
     margin: '0',
+      '@media (max-width: 1023px)' : {
+      width: '160px',
+    },
+      '@media (max-width: 767px)' : {
+        width: '280px',
+  }
+      
   }),
 option: (provided, { isFocused }) => ({
   ...provided,

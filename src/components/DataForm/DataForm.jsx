@@ -11,7 +11,6 @@ const DatePicker = () => {
   const [month, setMonth] = useState(date.getMonth()+1);
   const [year, setYear] = useState(date.getFullYear());
 
-  console.log(month);
   const handleMonthChange = selectedOption => {
     setMonth(selectedOption.value);
   };

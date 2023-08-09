@@ -1,0 +1,19 @@
+:root {
+    --background: #101010;
+    --background-table:rgba(82, 59, 126, 0.6);
+
+    --white: #fbfbfb;
+
+    --icon-violet:#734AEF;
+
+    --button-gradient: linear-gradient(167deg, #FFC727 0%, #9E40BA 61.46%, #7000FF 90.54%);
+
+    --transparency-10:rgba(255, 255, 255, 0.1);
+    --transparency-20:rgba(255, 255, 255, 0.2);
+    --transparency-40: rgba(255, 255, 255, 0.4);
+    --transparency-60:rgba(255, 255, 255, 0.6);
+
+    --yellow: #FFB627;
+    --dashboard-text: #FF868D;
+    --button-text-color: #623F8B;
+}

@@ -64,6 +64,9 @@ export const StyledNavListMob = styled.ul`
   display: flex;
   flex-direction: row;
   list-style: none;
+         @media (max-width: 767px) {
+ margin-top: 72px;
+  }
 `;
 
 export const StyledNavLinkMob = styled(NavLink)`

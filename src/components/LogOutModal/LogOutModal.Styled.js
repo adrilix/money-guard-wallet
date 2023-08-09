@@ -1,6 +1,7 @@
 
 import styled from 'styled-components';
 import bgimg from '../../svg/Rectangle4.png'
+import mobileBg from '../../svg/RectangleMobile.png'
 
 export const LogoTitle = styled.h2`
 color: #FBFBFB;
@@ -43,6 +44,15 @@ export const ModalContent = styled.div`
   align-items: center;
   width: 533px;
   height: 447px;
+      @media (max-width: 767px) {
+width: 100%;
+height:100%;
+possition:absolute;
+  background-image: url(${mobileBg});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  }
 `;
 
 export const Title = styled.p`
@@ -51,6 +61,7 @@ font-family: Poppins;
 font-size: 18px;
 margin-top:52px;
     @media (max-width: 767px) {
+    margin-top:300px;
      width:200px;
      text-align: center;
   }
