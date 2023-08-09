@@ -6,14 +6,20 @@ body {
   margin: 0;
   font-family: 'Poppins', sans-serif;
 
-  width: 100dvw;
-  height: 100dvh;
+  @keyframes scroll {
+      from {
+        background-position: 0 0;
+      }
+  
+      to {
+        background-position: 0 100%;
+      }
+    }
   background-image: url(./svg/Gradient2.png);
-
-
-      background-repeat: no-repeat;
-      background-size: cover;
-      background-color: rgba(16, 16, 16, 1);
+  background-attachment: fixed;
+  background-size: cover;
+  animation: scroll 5s linear infinite alternate;
+  background-color: rgba(16, 16, 16, 1);
 }
 
 code {
