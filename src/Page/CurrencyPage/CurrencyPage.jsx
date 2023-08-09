@@ -9,4 +9,6 @@ const CurrencyPage = () => {
   );
 };
 
-export default CurrencyPage;
+
+export default CurrencyPage
+

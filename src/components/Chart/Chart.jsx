@@ -7,9 +7,8 @@ import {
 } from 'chart.js'
 import { Doughnut } from 'react-chartjs-2';
 import { Diagramm, Total } from './ChartStyled';
-import { getTransactionsSummaryThunk } from 'redux/transactionsReduser/transactionsThunks';
-import { useDispatch, useSelector } from 'react-redux';
-import { refreshAuthThunk } from 'redux/registrationReducer/registrationThunks';
+import lepr from '../../svg/lepr-re.png'
+import {colorStatistics } from '../../Page/SummaryPage/colorStatistic'
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -27,9 +26,8 @@ function randomColor() {
 const ChartComponent = ({ data }) => {
   if (!data || !data.categoriesSummary || data.categoriesSummary.length === 0) {
 
-    return null;
+    return <img src={lepr} width={270}/>;
   }
-  
 
  const income = data.incomeSummary;
  
@@ -44,7 +42,10 @@ const ChartComponent = ({ data }) => {
     datasets: [
       {
         data: categories.map((item) => item.total),
-        backgroundColor: categories.map((item) => randomColor()),
+        backgroundColor: categories.map((item) => {
+          const colorInfo = colorStatistics.find((colorItem) => colorItem.name === item.name);
+  return colorInfo ? colorInfo.color : '#FFFFFF';
+        }),
         borderWidth: 0,
         cutout: '70%',
       },

@@ -10,6 +10,10 @@ box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.25), 0px -3px 2px 0px rgba(0, 0, 0,
   min-height: 60px;
   background-color: white;
 
+    @media (max-width: 767px) {
+      position:relative;
+    z-index: 3000;
+  }
 `;
 
 export const LogoBox = styled.div`
