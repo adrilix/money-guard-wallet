@@ -1,4 +1,3 @@
-
 // import { Balance } from 'components/Balance/Balance';
 // import ChartComponent from 'components/Chart/Chart';
 // import Currency from 'components/Currency/Currency';
@@ -15,6 +14,7 @@
 //   Statistics,
 // } from './SummaruPage.styled';
 
+
 import { Balance } from 'components/Balance/Balance'
 import ChartComponent from 'components/Chart/Chart'
 import Currency from 'components/Currency/Currency'
@@ -30,7 +30,6 @@ import { refreshAuthThunk } from 'redux/registrationReducer/registrationThunks'
 
 
 function SummaryPage() {
-
   const result = useSelector(selectTransactionsSummary);
   const isLogin = useSelector(state => state.auth.isLogin);
 
@@ -44,25 +43,23 @@ function SummaryPage() {
   return (
     <Img>
       <Box>
-
-//         <BoxStatistics>
+        {/* //         <BoxStatistics>
 //           <Statistics>Statistics</Statistics>
 //           <BoxDiagram>
 //             <ChartComponent />
-//             <DatePicker />
+//             <DatePicker /> */}
 
         <BoxNavigation>
-        <Navigation />
+          <Navigation />
           <Balance />
-          <Currency/>
+          <Currency />
         </BoxNavigation>
         <BoxStatistics>
           <Statistics>Statistics</Statistics>
-      <BoxDiagram>
+          <BoxDiagram>
             <ChartComponent data={result} />
-            <DatePicker/>
-            <StatisticsTable/>
-
+            <DatePicker />
+            <StatisticsTable />
           </BoxDiagram>
         </BoxStatistics>
       </Box>
