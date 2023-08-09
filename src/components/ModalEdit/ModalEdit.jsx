@@ -15,14 +15,17 @@ import {
 } from './ModalAddTransactionStyled';
 
 import DatetimePicker from 'components/DatetimePicker/DatetimePicker';
+
+import { RxSlash } from 'react-icons/rx';
 import { CiCalendarDate } from 'react-icons/ci';
 import Textarea from 'components/TextArea/TextArea';
 import { useDispatch } from 'react-redux';
 import {
+  getTransactionsThunk,
   patchTransactionsThunk,
 } from 'redux/transactionsReduser/transactionsThunks';
 import { object, string, date, number } from 'yup';
-import { refreshBalanceThunk } from 'redux/registrationReducer/registrationThunks';
+import Button from 'shared/Button/Button';
 
 const ModalEdit = ({ closeModal, item }) => {
   const categoryNames = {
@@ -46,6 +49,7 @@ const ModalEdit = ({ closeModal, item }) => {
     return parsedDate.isValid() ? parsedDate.toDate() : new Date('');
   };
   const handleSubmit = values => {
+    console.log(values);
     const data = {
       id: item.id,
       updatedData: {
@@ -58,9 +62,8 @@ const ModalEdit = ({ closeModal, item }) => {
     };
     dispatch(patchTransactionsThunk(data))
       .unwrap()
-      .then(() => dispatch(refreshBalanceThunk()));
+      .then(() => dispatch(getTransactionsThunk()));
   };
-
   return (
     <Formik
       initialValues={{
@@ -98,7 +101,8 @@ const ModalEdit = ({ closeModal, item }) => {
           <Heading>Edit transaction</Heading>
           <TransactionTypeDiv>
             <IncomeSpan $active={item.type === 'INCOME'}>Income</IncomeSpan>
-            <span>&frasl;</span>
+            <RxSlash />
+            {/* <TransactionTypeSpan> &frasl; </TransactionTypeSpan> */}
             <ExpenseSpan $active={item.type === 'EXPENSE'}>Expense</ExpenseSpan>
           </TransactionTypeDiv>
           {isExpense && (
@@ -146,10 +150,17 @@ const ModalEdit = ({ closeModal, item }) => {
             />
             <ErrorText name="comment" component="div" />
           </InputWrapper>
-          <button type="submit">Save</button>
-          <button type="button" onClick={() => closeModal()}>
+          <Button type="submit" variant="registration">
+            Save
+          </Button>
+          <Button
+            type="button"
+            variant="cancel"
+            style={{ marginBotoom: 0, marginTop: '-40px' }}
+            onClick={() => closeModal()}
+          >
             Cancel
-          </button>
+          </Button>
         </FormikForm>
       )}
     </Formik>

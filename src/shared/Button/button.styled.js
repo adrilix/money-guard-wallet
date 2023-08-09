@@ -49,8 +49,7 @@ export const ButtonStyle = styled.button`
     }
   }
   &.cancel {
-    width: 280px;
-    height: 40px;
+    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,6 +64,13 @@ export const ButtonStyle = styled.button`
     text-decoration: none;
     cursor: pointer;
     background-color: #ffffff;
+    color: #623f8b;
+
+    &:hover {
+      height: 50px;
+      background-color: #f5f4fa;
+      color: #623f8b;
+    }
   }
 `;
 

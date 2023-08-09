@@ -1,13 +1,21 @@
 import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 
-import { BoxLogo, Button, ButtonCancel, ButtonLogOut, ButtonWrapper, Logo, LogoTitle, ModalBackdrop, ModalContent, Title } from './LogOutModal.Styled';
+import {
+  ButtonCancel,
+  ButtonLogOut,
+  ButtonWrapper,
+  Logo,
+  LogoTitle,
+  ModalBackdrop,
+  ModalContent,
+  Title,
+} from './LogOutModal.Styled';
 import logo from '../../svg/logo.svg';
-import { Box } from 'Page/SummaryPage/SummaruPage.styled';
 
 export const LogOutModal = ({ showIt, setShowIt, handleLogOut }) => {
   useEffect(() => {
-     if (showIt) {
+    if (showIt) {
       document.addEventListener('keydown', handleClose);
       document.body.style.overflow = 'hidden';
     } else {
@@ -27,7 +35,6 @@ export const LogOutModal = ({ showIt, setShowIt, handleLogOut }) => {
 
   const hideLogOutModal = () => {
     setShowIt(false);
-
   };
 
   return createPortal(
@@ -35,20 +42,19 @@ export const LogOutModal = ({ showIt, setShowIt, handleLogOut }) => {
       <>
         <ModalBackdrop onClick={hideLogOutModal} />
 
-      <ModalContent>
-        <ButtonWrapper>
-          <Logo src={logo} alt="logo" />
-        <LogoTitle>Money Guard</LogoTitle>
-          <Title>Are you sure you want to log out?</Title>
-        
-              
-          <ButtonLogOut type="button" onClick={handleLogOut}>
-            Logout
-          </ButtonLogOut>
-          <ButtonCancel type="button" onClick={handleClose}>
-            Cansel
-          </ButtonCancel>
-            </ButtonWrapper>
+        <ModalContent>
+          <ButtonWrapper>
+            <Logo src={logo} alt="logo" />
+            <LogoTitle>Money Guard</LogoTitle>
+            <Title>Are you sure you want to log out?</Title>
+
+            <ButtonLogOut type="button" onClick={handleLogOut}>
+              Logout
+            </ButtonLogOut>
+            <ButtonCancel type="button" onClick={handleClose}>
+              Cansel
+            </ButtonCancel>
+          </ButtonWrapper>
         </ModalContent>
       </>
     ),
