@@ -1,4 +1,3 @@
-
 import styled from 'styled-components';
 import bgimg from '../../svg/Rectangle4.png'
 
@@ -38,6 +37,7 @@ export const ModalContent = styled.div`
   transform: translate(-50%, -50%);
   padding: 60px;
   z-index: 1000;
+
   background-image: url(${bgimg});
   border-radius: 8px;
   align-items: center;
@@ -68,6 +68,7 @@ export const ButtonWrapper = styled.div`
 
 export const ButtonLogOut = styled.button`
   border: none;
+
 border-radius: 20px;
 background: var(--button-gradient, linear-gradient(167deg, #FFC727 0%, #9E40BA 61.46%, #7000FF 90.54%));
 box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.20);
@@ -83,11 +84,13 @@ margin-top:52px;
 
     &:hover {
     color: var(--white, #FBFBFB);
+
     transform: scale(1.05);
   }
 
   &:focus {
     outline: none;
+
     transform: scale(1.05);
   }
 
@@ -126,4 +129,4 @@ margin-top:20px;
 height: 50px;
   }
 
-`
+
