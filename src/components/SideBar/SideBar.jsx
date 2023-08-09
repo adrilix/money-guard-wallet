@@ -25,8 +25,6 @@ export const SideBar = () => {
           display="flex"
           flexDirection="row"
           gap="32px"
-          padL="32px"
-          padR="32px"
           marB="40px"
           w="768px"
         >

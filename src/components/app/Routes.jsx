@@ -5,7 +5,6 @@ import PublicRoute from './PublicRoutes/PublicRoutes';
 import { LoaderSpinner } from 'components/Loader/Loader';
 import { Suspense, lazy } from 'react';
 import HomePage from 'Page/Home Page/HomePage';
-import { useMediaQuery } from 'react-responsive';
 import { RedirectTo } from './RedirectTo/RedirectTo';
 
 const LoginPage = lazy(() => import('../../Page/LogInPage'));
