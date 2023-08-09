@@ -25,6 +25,7 @@ export const LogOutModal = ({ showIt, setShowIt, handleLogOut }) => {
       document.removeEventListener('keydown', handleClose);
       document.body.style.overflow = '';
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [showIt]);
 
   const handleClose = event => {

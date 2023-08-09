@@ -21,11 +21,11 @@ import { CiCalendarDate } from 'react-icons/ci';
 import Textarea from 'components/TextArea/TextArea';
 import { useDispatch } from 'react-redux';
 import {
-  getTransactionsThunk,
   patchTransactionsThunk,
 } from 'redux/transactionsReduser/transactionsThunks';
 import { object, string, date, number } from 'yup';
 import Button from 'shared/Button/Button';
+import { refreshBalanceThunk } from 'redux/registrationReducer/registrationThunks';
 
 const ModalEdit = ({ closeModal, item }) => {
   const categoryNames = {
