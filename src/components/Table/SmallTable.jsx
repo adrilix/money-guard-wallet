@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Section, TableListContainer, StyledTable, Thead, TdDate, Td, DeleteBtn } from './TableStyled';
-import { deleteTransactionsThunk } from 'redux/transactionsReduser/transactionsThunks';
+import { deleteTransactionsThunk, getTransactionsThunk } from 'redux/transactionsReduser/transactionsThunks';
 import AddTransactionModal from 'components/ModalAddTransaction/AddTransactionModal';
 import EditTransactionModal from 'components/ModalEdit/EditTransactionModal';
 import { refreshBalanceThunk } from 'redux/registrationReducer/registrationThunks';
@@ -13,7 +13,7 @@ const TableList = () => {
   const handleDelete = (transactionId) => {
     dispatch(deleteTransactionsThunk(transactionId))
     .unwrap()
-    // .then(() =>dispatch(getTransactionsThunk()))
+    .then(() =>dispatch(getTransactionsThunk()))
     .then(() => dispatch(refreshBalanceThunk()));
   };
 

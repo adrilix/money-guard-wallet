@@ -22,7 +22,7 @@ export const HeaderDiv = styled(Div)`
       /* position: fixed;
       top: 0;
       width: 100%; */
-
+    }
     @media screen and (min-width: 480px){
     width: 440px;
   }

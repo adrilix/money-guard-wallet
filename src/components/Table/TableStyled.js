@@ -44,9 +44,12 @@ margin: 0;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.10);
 
-    th,
+    th {
+      padding: 12px 0 12px 20px;
+    }
+
     td {
-    padding: 12px 20px;
+    padding: 12px 20px 12px 0;
   }
 
     th:not(:last-child),
@@ -125,7 +128,7 @@ export const Td = styled.td`
     display: flex;
     justify-content: flex-end;
 
-    height: 18.5px;
+    height: 18.4px;
     
 
     font-size: 16px;
@@ -134,7 +137,7 @@ export const Td = styled.td`
     line-height: normal;
     letter-spacing: 0.32px;
     &:last-child {
-        height: 23.3px;
+        height: 24.7px;
     }
     }
     @media screen and (min-width: 768px) {
