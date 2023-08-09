@@ -19,10 +19,10 @@ import { CiCalendarDate } from 'react-icons/ci';
 import Textarea from 'components/TextArea/TextArea';
 import { useDispatch } from 'react-redux';
 import {
-  getTransactionsThunk,
   patchTransactionsThunk,
 } from 'redux/transactionsReduser/transactionsThunks';
 import { object, string, date, number } from 'yup';
+import { refreshBalanceThunk } from 'redux/registrationReducer/registrationThunks';
 
 const ModalEdit = ({ closeModal, item }) => {
   const categoryNames = {
@@ -46,7 +46,6 @@ const ModalEdit = ({ closeModal, item }) => {
     return parsedDate.isValid() ? parsedDate.toDate() : new Date('');
   };
   const handleSubmit = values => {
-    console.log(values);
     const data = {
       id: item.id,
       updatedData: {
@@ -59,8 +58,9 @@ const ModalEdit = ({ closeModal, item }) => {
     };
     dispatch(patchTransactionsThunk(data))
       .unwrap()
-      .then(() => dispatch(getTransactionsThunk()));
+      .then(() => dispatch(refreshBalanceThunk()));
   };
+
   return (
     <Formik
       initialValues={{

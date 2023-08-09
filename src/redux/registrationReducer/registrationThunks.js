@@ -1,5 +1,4 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-
 import {
   logInRequest,
   logOutRequest,
@@ -80,14 +79,27 @@ export const refreshAuthThunk = createAsyncThunk(
     const token = state.auth.token;
     try {
       setToken(token);
-      console.log('token: ', token);
+
       const data = await getUsersCurrentDataRequest();
       return data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
     }
   }
-);
+)
+
+export const refreshBalanceThunk = createAsyncThunk(
+  'auth/refreshBalanceThunk',
+  async (_, thunkAPI) => {
+      try {
+          const data = await getUsersCurrentDataRequest();
+          return data;
+      } catch (error) {
+          return thunkAPI.rejectWithValue(error.message);
+      }
+  }
+);;
+
 
 export const selectAuthData = state => state.auth.userData;
 export const selectAuthDataBalance = state => state.auth.userData.balance;

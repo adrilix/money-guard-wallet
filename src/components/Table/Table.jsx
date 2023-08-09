@@ -4,15 +4,17 @@ import { Section, TableContainer, StyledTable, Thead, TdType, ThEdit, TdSum, ThS
 import { deleteTransactionsThunk, getTransactionsThunk } from 'redux/transactionsReduser/transactionsThunks';
 import AddTransactionModal from 'components/ModalAddTransaction/AddTransactionModal';
 import EditTransactionModal from 'components/ModalEdit/EditTransactionModal';
+import { refreshBalanceThunk } from 'redux/registrationReducer/registrationThunks';
 
 const Table = () => {
   const tableData = useSelector((state) => state.transactions.transactions);
   const dispatch = useDispatch();
 
   const handleDelete = (transactionId) => {
-    dispatch(deleteTransactionsThunk(transactionId)).unwrap().then(() =>
-      dispatch(getTransactionsThunk())
-    );
+    dispatch(deleteTransactionsThunk(transactionId))
+    .unwrap()
+    .then(() => dispatch(getTransactionsThunk()))
+    .then(() => dispatch(refreshBalanceThunk()));
   };
 
   const categoryNames = {
