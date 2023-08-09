@@ -14,6 +14,7 @@ import {
 import logo from '../../svg/logo.svg';
 
 export const LogOutModal = ({ showIt, setShowIt, handleLogOut }) => {
+  
   useEffect(() => {
     if (showIt) {
       document.addEventListener('keydown', handleClose);
@@ -25,7 +26,8 @@ export const LogOutModal = ({ showIt, setShowIt, handleLogOut }) => {
       document.removeEventListener('keydown', handleClose);
       document.body.style.overflow = '';
     };
-  }, [showIt]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ showIt]);
 
   const handleClose = event => {
     if (event.code === 'Escape' || event.target === event.currentTarget) {

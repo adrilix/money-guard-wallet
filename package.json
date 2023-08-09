@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://adrilix.github.io/Money-guard-wallet/",
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@redux-devtools/extension": "^3.2.5",
     "@reduxjs/toolkit": "^1.9.5",
     "axios": "^1.4.0",
