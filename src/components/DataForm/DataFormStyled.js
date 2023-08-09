@@ -9,6 +9,7 @@ export const SelectBox = s.div`
       @media (max-width: 767px) {
       gap:20px;
       flex-direction: column;
+      align-items: center;
   }
   `
 

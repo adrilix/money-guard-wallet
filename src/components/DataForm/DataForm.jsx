@@ -53,14 +53,14 @@ const DatePicker = () => {
         options={months}
         styles={customSelect}
         onChange={handleMonthChange}
-        placeholder="Select a month"
+        placeholder="Select month"
         isSearchable={false}
       />
       <Select
         options={years}
         styles={customSelect}
         onChange={handleSelectYear}
-        placeholder="Select a year"
+        placeholder="Select year"
         isSearchable={false}
       />
     </SelectBox>
