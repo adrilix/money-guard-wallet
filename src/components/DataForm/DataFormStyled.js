@@ -3,10 +3,10 @@ import s from 'styled-components'
 export const SelectBox = s.div`
     display: flex;
     gap: 20px;
-    @media (max-width: 1023px) {
+    @media (max-width: 1279px) {
       gap:16px;
   }
-      @media (max-width: 1023px) {
+      @media (max-width: 767px) {
       gap:20px;
       flex-direction: column;
   }
@@ -22,7 +22,7 @@ export const customSelect = {
     fontSize: '16px',
     border: '1px solid var(--white-60, rgba(255, 255, 255, 0.60))',
     borderRadius: '8px',
-  '@media (max-width: 1023px)' : {
+  '@media (max-width: 1279px)' : {
       maxWidth: '160px',
   },
       '@media (max-width: 767px)' : {
@@ -46,7 +46,7 @@ export const customSelect = {
     border: 'none',
     boxShadow: 'none',
     margin: '0',
-      '@media (max-width: 1023px)' : {
+      '@media (max-width: 1279px)' : {
       width: '160px',
     },
       '@media (max-width: 767px)' : {

@@ -24,7 +24,7 @@ export const Diagramm = styled.div`
   flex: 1 1;
   align-self: start;
   justify-self: start;
-      @media (max-width: 1023px) {
+      @media (max-width: 1279px) {
        min-height: 336px;
     min-width: 336px;
     }
@@ -37,7 +37,7 @@ export const Diagramm = styled.div`
     height: 100% !important;
     max-width: 288px;
     max-height: 288px;
-    @media (max-width: 1023px) {
+    @media (max-width: 1279px) {
        min-height: 336px;
     min-width: 336px;
     }
