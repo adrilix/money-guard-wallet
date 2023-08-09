@@ -1,11 +1,11 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { getTransactionCategoriesRequest } from 'services/api/transactionCategoriesApi';
 import {
-  addTransactionsRequest,
-  deleteTransactionsRequest,
-  getTransactionsRequest,
-  getTransactionsSummaryRequest,
-  patchTransactionsRequest,
+    addTransactionsRequest,
+    deleteTransactionsRequest,
+    getTransactionsRequest,
+    getTransactionsSummaryRequest,
+    patchTransactionsRequest,
 } from 'services/api/transactionsApi';
 
 export const getTransactionsSummaryThunk = createAsyncThunk("transactions/getTransactionsSummaryThunk",
@@ -47,15 +47,15 @@ export const addTransactionsThunk = createAsyncThunk("transactions/addTransactio
         }
     });
 export const patchTransactionsThunk = createAsyncThunk(
-  'transactions/patchTransactionsThunk',
-  async ({ id, updatedData }, { rejectWithValue }) => {
-    try {
-      const editTransaction = await patchTransactionsRequest(id, updatedData);
-      return editTransaction;
-    } catch (error) {
-      return rejectWithValue(error.message);
+    'transactions/patchTransactionsThunk',
+    async ({ id, updatedData }, { rejectWithValue }) => {
+        try {
+            const editTransaction = await patchTransactionsRequest(id, updatedData);
+            return editTransaction;
+        } catch (error) {
+            return rejectWithValue(error.message);
+        }
     }
-  }
 );
 export const deleteTransactionsThunk = createAsyncThunk("transactions/deleteTransactionsThunk",
     async (transactionId, { rejectWithValue }) => {
@@ -73,5 +73,5 @@ export const selectTransactionsCategories = (state) => state.transactions.catego
 export const selectAllTransactions = (state) => state.transactions.transactions;
 
 export const selectTransactionsIsLoadingStatus = state =>
-  state.transactions.isLoading;
+    state.transactions.isLoading;
 export const selectTransactionsErrorStatus = state => state.transactions.error;

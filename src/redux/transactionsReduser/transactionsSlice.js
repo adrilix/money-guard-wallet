@@ -19,12 +19,6 @@ const initialState = {
 const transactionsSlice = createSlice({
   name: 'transactions',
   initialState,
-  reducers: {
-    // findTransaction: (state, action) => {
-    //     state.filter = action.payload;
-    // }
-  },
-
   extraReducers: builder =>
     builder
       //---------------------- Get transactions summary ------------------------------
@@ -109,8 +103,7 @@ const transactionsSlice = createSlice({
       .addCase(deleteTransactionsThunk.rejected, (state, { error }) => {
         state.isLoading = false;
         state.error = error;
-      }),
+      })
 });
 
-// export const { findTransaction } = transactionsSlice.actions;
 export const transactionsReducer = transactionsSlice.reducer;

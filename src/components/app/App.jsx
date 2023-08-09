@@ -9,6 +9,7 @@ import { refreshAuthThunk } from 'redux/registrationReducer/registrationThunks';
 function App() {
   const dispatch = useDispatch();
   const isLogin = useSelector(state => state.auth.isLogin);
+  
   useEffect(() => {
     if (isLogin) return;
     dispatch(refreshAuthThunk());

@@ -3,6 +3,7 @@ import {
   logInThunk,
   logOutThunk,
   refreshAuthThunk,
+  refreshBalanceThunk,
   registerThunk,
 } from './registrationThunks';
 import { addTransactionsThunk } from 'redux/transactionsReduser/transactionsThunks';
@@ -82,14 +83,13 @@ const authSlice = createSlice({
       })
       //------------------------- Refresh Balance after add ----------------
       .addCase(addTransactionsThunk.fulfilled, (state, action) => {
-        console.log('action: ', action);
         state.userData.balance = action.payload.balanceAfter
       })
-      //------------------------- Refresh Balance --------------------------
-      // .addCase(patchTransactionsThunk.fulfilled, (state, action) => {
-      //   console.log('action: ', action);
-      //   state.userData.balance = state.userData.balance + action.payload.balanceAfter
-      // })
+      //----------- Refresh ballance after edit/dell transaction  -----------
+      .addCase(refreshBalanceThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.userData.balance = action.payload.balance;
+      })
 });
 
 export const authReducer = authSlice.reducer;
