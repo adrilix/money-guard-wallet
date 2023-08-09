@@ -31,6 +31,7 @@ export const Diagramm = styled.div`
        @media (max-width: 767px) {
     min-height: 280px;
     min-width: 280px;
+    margin-bottom:32px;
   }
   canvas {
     width: 100% !important;

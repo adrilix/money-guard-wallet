@@ -30,6 +30,10 @@ export const ModalBackdrop = styled.div`
   background: rgba(34, 13, 91, 0.23);
   backdrop-filter: blur(3.5px);
   z-index: 10;
+  @media (max-width: 767px) {
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(0);
+  }
 `;
 
 export const ModalContent = styled.div`
@@ -45,9 +49,10 @@ export const ModalContent = styled.div`
   align-items: center;
   width: 533px;
   height: 447px;
-      @media (max-width: 767px) {
-width: 100%;
-height:100%;
+@media (max-width: 767px) {
+width: 100vw;
+top:406px;
+height: calc(100vh - 57px);
 possition:absolute;
   background-image: url(${mobileBg});
   background-size: cover;
@@ -62,7 +67,7 @@ color: #FFF;
 font-size: 18px;
 margin-top:52px;
     @media (max-width: 767px) {
-    margin-top:300px;
+    margin-top:240px;
      width:200px;
      text-align: center;
 

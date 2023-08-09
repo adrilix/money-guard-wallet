@@ -7,10 +7,16 @@ import { Box } from 'Page/SummaryPage/SummaruPage.styled';
 
 export const LogOutModal = ({ showIt, setShowIt, handleLogOut }) => {
   useEffect(() => {
-    if (showIt) {
+     if (showIt) {
       document.addEventListener('keydown', handleClose);
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
     }
-    return () => document.removeEventListener('keydown', handleClose);
+    return () => {
+      document.removeEventListener('keydown', handleClose);
+      document.body.style.overflow = '';
+    };
   }, [showIt]);
 
   const handleClose = event => {
@@ -21,6 +27,7 @@ export const LogOutModal = ({ showIt, setShowIt, handleLogOut }) => {
 
   const hideLogOutModal = () => {
     setShowIt(false);
+
   };
 
   return createPortal(
