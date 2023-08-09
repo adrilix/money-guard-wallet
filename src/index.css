@@ -1,15 +1,47 @@
 @import-normalize; /* bring in normalize.css styles */
+@import url('./stylesheet/fonts.css');
+@import './stylesheet/vars.css';
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: 'Poppins', sans-serif;
+
+  @keyframes scroll {
+    from {
+      background-position: 0 0;
+    }
+
+    to {
+      background-position: 0 100%;
+    }
+  }
+
+  background-image: url(./svg/Gradient2.png);
+  background-attachment: fixed;
+  background-size: cover;
+  animation: scroll 5s linear infinite alternate;
+  background-color: rgba(16, 16, 16, 1);
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: 'Poppins', sans-serif;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  padding: 0;
+}
+
+p,
+ul,
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
 }

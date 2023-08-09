@@ -1,11 +1,14 @@
-import React from 'react'
+import Currency from 'components/Currency/Currency';
+import { StyledBox } from './CurrencyPage.styled';
 
-function CurrencyPage() {
+const CurrencyPage = () => {
   return (
     <div>
-      
+      <StyledBox>
+        <Currency />
+      </StyledBox>
     </div>
-  )
-}
+  );
+};
 
-export default CurrencyPage
+export default CurrencyPage;

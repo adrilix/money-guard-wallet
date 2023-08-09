@@ -1,16 +1,12 @@
 import React, { useEffect } from 'react';
+
 import { createPortal } from 'react-dom';
 import { IoIosClose } from 'react-icons/io';
-import {
-  Box,
-  ButtonIcon,
-  ModalBackdrop,
-  ModalContent,
-} from './ModalFormStyled';
+import { ButtonIcon, ModalBackdrop, ModalContent } from './ModalFormStyled';
 
 const modalRoot = document.querySelector('#modal-root');
 
-function ModalForm({
+export default function Modal({
   children = '',
   handleKeyDown = () => {},
   handleBackdropClick = () => {},
@@ -22,23 +18,19 @@ function ModalForm({
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [handleKeyDown]);
+
   return createPortal(
     <ModalBackdrop onClick={handleBackdropClick}>
       <ModalContent>
-        <Box>
-          <ButtonIcon
-            type="button"
-            onClick={closeModal}
-            aria-label="close modal"
-          >
-            <IoIosClose size="40px" />
-          </ButtonIcon>
-        </Box>
+        <ButtonIcon type="button" onClick={closeModal} aria-label="close modal">
+          <IoIosClose
+            style={{ width: '20px', height: '20px', position: 'relative' }}
+          />
+        </ButtonIcon>
+
         {children}
       </ModalContent>
     </ModalBackdrop>,
     modalRoot
   );
 }
-
-export default ModalForm;

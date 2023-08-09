@@ -1,37 +1,45 @@
-// import { userReducer } from "./userReducers/userSlice";
-// import { contactsReducer } from "./contactsReducers/contactsSlice";
-// import { configureStore } from "@reduxjs/toolkit";
+import storage from 'redux-persist/lib/storage';
+import { authReducer } from './registrationReducer/registrationSlice';
+import { transactionsReducer } from './transactionsReduser/transactionsSlice';
 
-// import {
-//   persistStore,
-//   persistReducer,
-//   FLUSH,
-//   REHYDRATE,
-//   PAUSE,
-//   PERSIST,
-//   PURGE,
-//   REGISTER,
-// } from 'redux-persist';
-// import storage from 'redux-persist/lib/storage';
+import { configureStore } from '@reduxjs/toolkit';
+import {
+  persistStore,
+  persistReducer,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist';
+import { currencyReducer } from './currencyRedusers/currencySlice';
 
-// const userPersistConfig = {
-//   key: 'user',
-//   storage,
-//   whitelist: ['token']
-// }
+const authPersistConfig = {
+  key: 'user',
+  storage,
+  whitelist: ['token'],
+};
 
-// export const store = configureStore({
-//   reducer: {
-//     user: persistReducer (userPersistConfig, userReducer),
-//     phonebook: contactsReducer,
-// },
+const currencyPersistConfig = {
+  key: 'currency',
+  storage,
+  whitelist: ['data'],
+};
 
-// middleware: (getDefaultMiddleware) =>
-//     getDefaultMiddleware({
-//       serializableCheck: {
-//         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
-//       },
-//     }),
-// });
+export const store = configureStore({
+  reducer: {
+    auth: persistReducer(authPersistConfig, authReducer),
+    transactions: transactionsReducer,
+    currency: persistReducer(currencyPersistConfig, currencyReducer),
+  },
 
-// export const persistor = persistStore(store);
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
+});
+
+export const persistor = persistStore(store);

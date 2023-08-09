@@ -1,11 +1,42 @@
-import React from 'react'
+import React from 'react';
 
-function RegistrationPage() {
+import logoImg from '../../svg/logo.svg';
+
+import { LoginSection, LoginStyled } from './registerPage.styled';
+import RegisterForm from 'components/RegisterForm/RegisterForm';
+import { useDispatch } from 'react-redux';
+import UseAuth from 'HOC/useAuth';
+import { Navigate } from 'react-router-dom';
+import { registerThunk } from 'redux/registrationReducer/registrationThunks';
+
+const RegisterPage = () => {
+  // const onSignUp = ({ name, email, password }) => {
+  //   const newValue = { name, email, password };
+  //   console.log(`loginPage`, newValue);
+  // };
+
+  const dispatch = useDispatch();
+  const onSignUp = ({ name, email, password }) => {
+    dispatch(registerThunk({ username: name, email, password }));
+  };
+  const isLogin = UseAuth();
+  if (isLogin) {
+    return <Navigate to="/home" />;
+  }
+
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <LoginSection>
+      <LoginStyled className="wrapper">
+        <div className="inner">
+          <div className="logo">
+            <img src={logoImg} alt="logoImg" width="36" />
+            <span className="logoText">Money Guard</span>
+          </div>
+          <RegisterForm onSubmit={onSignUp} />
+        </div>
+      </LoginStyled>
+    </LoginSection>
+  );
+};
 
-export default RegistrationPage
+export default RegisterPage;
