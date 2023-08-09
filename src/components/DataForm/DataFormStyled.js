@@ -3,10 +3,10 @@ import s from 'styled-components'
 export const SelectBox = s.div`
     display: flex;
     gap: 20px;
-    @media (max-width: 1023px) {
+    @media (max-width: 1279px) {
       gap:16px;
   }
-      @media (max-width: 1023px) {
+      @media (max-width: 767px) {
       gap:20px;
       flex-direction: column;
   }
@@ -18,11 +18,10 @@ export const customSelect = {
     width: '100%',
     maxHeight: '50px',
     maxWidth: '182px',
-    fontFamily: 'Poppins',
     fontSize: '16px',
-    border: '1px solid var(--white-60, rgba(255, 255, 255, 0.60))',
+    border: '1px solid var(--white-60, --transparency-60)',
     borderRadius: '8px',
-  '@media (max-width: 1023px)' : {
+  '@media (max-width: 1279px)' : {
       maxWidth: '160px',
   },
       '@media (max-width: 767px)' : {
@@ -33,23 +32,22 @@ export const customSelect = {
   
     singleValue: (provided) => ({
     ...provided,
-    color: '#FBFBFB',
-    fontFamily: 'Poppins',
-      fontSize: '16px',
+    color: 'var(--white)',
+    fontSize: '16px',
     marginLeft: '20px',
   }),
   control: (provided) => ({
-      ...provided,
+    ...provided,
     background: 'rgba(74, 86, 226, 0.10)',
     minHeight: '50px',
-     width:'182px',
+    width:'182px',
     border: 'none',
     boxShadow: 'none',
     margin: '0',
-      '@media (max-width: 1023px)' : {
+    '@media (max-width: 1279px)' : {
       width: '160px',
     },
-      '@media (max-width: 767px)' : {
+    '@media (max-width: 767px)' : {
         width: '280px',
   }
       
@@ -57,24 +55,22 @@ export const customSelect = {
 option: (provided, { isFocused }) => ({
   ...provided,
   cursor: 'pointer',
-  backgroundColor: isFocused ? 'var(--form-color, rgba(255, 255, 255, 0.10))' : 'transparent',
-  color: isFocused ? 'var(--dashboard-text, #FF868D)' : '#FBFBFB',
-  '&:hover': {
-    backgroundColor: isFocused ? 'var(--form-color, rgba(255, 255, 255, 0.10))' : 'transparent',
-    color: isFocused ? 'var(--dashboard-text, #FF868D)' : '#FBFBFB',
+  backgroundColor: isFocused ? 'var(--transparency-10)' : 'transparent',
+    color: isFocused ? 'var(--dashboard-text)' : 'var(--white)',
+    '&:hover': {
+    backgroundColor: isFocused ? 'var(--transparency-10)' : 'transparent',
+    color: isFocused ? 'var(--dashboard-text)' : '#FBFBFB',
     },
     textAlign: 'left',
     paddingLeft: '20px',
-  fontFamily: 'Poppins',
-  fontSize: '16px',
+    fontSize: '16px',
 }),
   menu: (provided) => ({
     ...provided,
-      textAlign: 'center',
-      borderRadius: '8px',
+    textAlign: 'center',
+    borderRadius: '8px',
     margin: '0',
     background:'linear-gradient(360deg, rgba(83, 61, 186, 1) 0%, rgba(80, 48, 154, 1) 35.94%, rgba(106, 70, 165, 1) 61.04%, rgba(133, 93, 175, 1) 100%)'
-    
   }),
     menuList: (provided) => ({
         ...provided,
@@ -102,8 +98,7 @@ option: (provided, { isFocused }) => ({
   placeholder: (provided) => ({
     ...provided,
     paddingBottom: '2px',
-    color: '#FBFBFB',
-    fontFamily: 'Poppins',
+    color: 'var(--white)',
       fontSize: '16px',
     }),
     indicatorSeparator: (provided) => ({

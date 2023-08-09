@@ -37,9 +37,11 @@ const HomePage = () => {
   }, []);
   return (
     <div>
+
       <BoxTableList>
         <>{windowWidth >= adaptiveSize ? <Table /> : <SmallTable />}</>
       </BoxTableList>
+
     </div>
   );
 };

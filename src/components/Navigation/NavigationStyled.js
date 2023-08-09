@@ -65,7 +65,7 @@ export const StyledNavListMob = styled.ul`
   flex-direction: row;
   list-style: none;
          @media (max-width: 767px) {
- margin-top: 72px;
+ margin-top: 12px;
   }
 `;
 

@@ -46,7 +46,7 @@ export const LogoBox = styled.button`
   display: flex;
   align-items: center;
   flex-direction: column;
-  background: rgba(255, 255, 255, 0); /* Прозорий фон (встановіть кольори на свій розсуд) */
+  background: rgba(255, 255, 255, 0);
   border: none;
   @media (max-width: 767px) {
     padding: 12px 0;
@@ -60,8 +60,7 @@ export const Logo = styled.img`
 `;
 
 export const LogoName = styled.span`
-    color: #FBFBFB;
-
+    color: var(--white);
     font-size: 17.097px;
 `;
 
@@ -77,7 +76,7 @@ export const Box = styled.div`
 `;
 
 export const Name = styled.p`
-  color: rgba(255, 255, 255, 0.60);
+  color: var(--transparency-60);
     text-align: right;
 
     font-size: 16px;
@@ -91,7 +90,7 @@ export const Name = styled.p`
 export const Stick = styled.div`
   height: 30px;
   width: 1px;
-  background-color: rgba(255, 255, 255, 0.60);
+  background-color: var( --transparency-60);
   margin-right: 12px;
  @media (max-width: 767px) {
     display: none;
@@ -134,9 +133,8 @@ export const ExitIcon = styled.img`
 `;
 
 export const ExitText = styled.p`
-    color:rgba(255, 255, 255, 0.60);
+    color:var(--transparency-60);
     text-align: right;
-    font-size: 16px;
     @media (max-width: 767px) {
     display:none;
   }

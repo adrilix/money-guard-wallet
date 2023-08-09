@@ -5,8 +5,7 @@ import mobileBg from '../../svg/RectangleMobile.png'
 
 
 export const LogoTitle = styled.h2`
-  color: #fbfbfb;
-  font-family: Poppins;
+  color: var(--white);
   font-size: 26.963px;
   margin-top: 0;
   @media (max-width: 767px) {
@@ -31,6 +30,10 @@ export const ModalBackdrop = styled.div`
   background: rgba(34, 13, 91, 0.23);
   backdrop-filter: blur(3.5px);
   z-index: 10;
+  @media (max-width: 767px) {
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(0);
+  }
 `;
 
 export const ModalContent = styled.div`
@@ -46,9 +49,10 @@ export const ModalContent = styled.div`
   align-items: center;
   width: 533px;
   height: 447px;
-      @media (max-width: 767px) {
-width: 100%;
-height:100%;
+@media (max-width: 767px) {
+width: 100vw;
+top:406px;
+height: calc(100vh - 57px);
 possition:absolute;
   background-image: url(${mobileBg});
   background-size: cover;
@@ -60,11 +64,10 @@ possition:absolute;
 export const Title = styled.p`
 
 color: #FFF;
-font-family: Poppins;
 font-size: 18px;
 margin-top:52px;
     @media (max-width: 767px) {
-    margin-top:300px;
+    margin-top:240px;
      width:200px;
      text-align: center;
 
@@ -86,13 +89,11 @@ export const ButtonLogOut = styled.button`
 
   border-radius: 20px;
   background: var(
-    --button-gradient,
-    linear-gradient(167deg, #ffc727 0%, #9e40ba 61.46%, #7000ff 90.54%)
+    --button-gradient
   );
   box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
   color: #fff;
   text-align: center;
-  font-family: Poppins;
   font-size: 18px;
   letter-spacing: 1.8px;
   text-transform: uppercase;
@@ -125,7 +126,6 @@ export const ButtonCancel = styled.button`
   box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
   color: #623f8b;
   text-align: center;
-  font-family: Poppins;
   font-size: 18px;
   letter-spacing: 1.8px;
   text-transform: uppercase;

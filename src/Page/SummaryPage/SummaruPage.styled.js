@@ -22,6 +22,10 @@ color: var(--white, #FBFBFB);
 font-family: Poppins;
 font-size: 30px;
 font-weight: 400;
+margin-bottom:20px;
+@media (max-width: 767px) {
+    margin-bottom:8px;
+  }
 `
 
 export const BoxNavigation = styled.div`
