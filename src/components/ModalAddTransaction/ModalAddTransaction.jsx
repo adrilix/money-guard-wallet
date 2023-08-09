@@ -56,8 +56,8 @@ const ModalAddTransaction = ({ closeModal }) => {
       amount: isChecked ? Number(values.value) : Number(-values.value),
     };
     dispatch(addTransactionsThunk(data))
-      .unwrap()
-      .then(() => dispatch(getTransactionsThunk()));
+      // .unwrap()
+      // .then(() => dispatch(getTransactionsThunk()));
   };
 
   return (
