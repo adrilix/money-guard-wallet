@@ -4,12 +4,13 @@ export const StyledTextarea = styled.textarea`
   resize: none;
   transition: all 0.3s ease-in-out;
   border: none;
-  border-bottom: 1px solid #e0e0e0;
+  background-color: transparent;
+  border-bottom: 1px solid #ffffff66;
   font-family: Circe;
   font-size: 18px;
   font-weight: 400;
   line-height: 1.33;
-  color: #000;
+  color: #fbfbfb;
   max-width: 100%;
   margin-bottom: 10px;
   width: 280px;

@@ -11,7 +11,7 @@ const Button = ({ children, variant = 'none', ...restProps }) => {
 };
 Button.propTypes = {
   children: PropTypes.node.isRequired,
-  variant: PropTypes.oneOf(['none', 'login', 'registration']),
+  variant: PropTypes.oneOf(['none', 'cancel', 'login', 'registration']),
 };
 
 export default Button;

@@ -4,11 +4,12 @@ import Datetime from 'react-datetime';
 export const StyledDatetime = styled(Datetime)`
   input {
     border: none;
-    border-bottom: 1px solid #e0e0e0;
-    font-family: Circe;
+    border-bottom: 1px solid #ffffff66;
+
     font-size: 18px;
     font-weight: 400;
-    color: #000;
+    color: #fbfbfb;
+    background-color: transparent;
     padding-left: 20px;
     padding-bottom: 2px;
     cursor: pointer;
