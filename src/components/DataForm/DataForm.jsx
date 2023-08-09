@@ -11,7 +11,6 @@ const DatePicker = () => {
   const [month, setMonth] = useState(date.getMonth()+1);
   const [year, setYear] = useState(date.getFullYear());
 
-  console.log(month);
   const handleMonthChange = selectedOption => {
     setMonth(selectedOption.value);
   };
@@ -21,7 +20,9 @@ const DatePicker = () => {
   };
 
   useEffect(() => {
-    dispatch(getTransactionsSummaryThunk({ month: Number(month), year: Number(year) }))
+    setTimeout(() => {
+      dispatch(getTransactionsSummaryThunk({ month: Number(month), year: Number(year) }))
+    }, 1500);
   }, [dispatch, month, year]);
 
 

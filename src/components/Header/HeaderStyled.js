@@ -7,20 +7,26 @@ box-shadow: 0px 4px 40px 0px rgba(0, 0, 0, 0.25), 0px -3px 2px 0px rgba(0, 0, 0,
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  min-height: 60px;
+  height: 60px;
   background-color: white;
 
     @media (max-width: 767px) {
-      position:relative;
+      top:0;
+      position:fixed;
     z-index: 3000;
   }
 `;
 
-export const LogoBox = styled.div`
+export const LogoBox = styled.button`
   margin:16px;
   display: flex;
   align-items: center;
   flex-direction: column;
+  background: rgba(255, 255, 255, 0); /* Прозорий фон (встановіть кольори на свій розсуд) */
+  border: none;
+  @media (max-width: 767px) {
+    margin:20px;
+  }
 `;
 
 export const Logo = styled.img`
@@ -30,7 +36,7 @@ export const Logo = styled.img`
 
 export const LogoName = styled.span`
     color: #FBFBFB;
-    /* font-family: Poppins; */
+
     font-size: 17.097px;
 `;
 
@@ -40,14 +46,18 @@ export const Box = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-right:16px
+  
 `;
 
 export const Name = styled.p`
   color: rgba(255, 255, 255, 0.60);
     text-align: right;
-    /* font-family: Poppins; */
+
     font-size: 16px;
     margin-right: 12px;
+        @media (max-width: 767px) {
+      margin-right: 8px;
+  }
 `;
 
 export const Stick = styled.div`
@@ -55,6 +65,9 @@ export const Stick = styled.div`
   width: 1px;
   background-color: rgba(255, 255, 255, 0.60);
   margin-right: 12px;
+ @media (max-width: 767px) {
+    display: none;
+  }
 `;
 
 export const ExitButton = styled.button`
@@ -67,9 +80,13 @@ export const ExitButton = styled.button`
   width: 50px;
   height: 100%;
   transition: all 400ms;
-
   &:hover {
     transform: scale(1.1);
+  }
+
+   @media (max-width: 767px) {
+   width: 18px;
+  height: 18px;
   }
 `;
 
@@ -82,6 +99,8 @@ export const ExitIcon = styled.img`
 export const ExitText = styled.p`
     color:rgba(255, 255, 255, 0.60);
     text-align: right;
-    /* font-family: Poppins; */
     font-size: 16px;
+    @media (max-width: 767px) {
+    display:none;
+  }
 `;
