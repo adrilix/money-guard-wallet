@@ -62,7 +62,7 @@ const ModalEdit = ({ closeModal, item }) => {
     };
     dispatch(patchTransactionsThunk(data))
       .unwrap()
-      .then(() => dispatch(getTransactionsThunk()));
+      .then(() => dispatch(refreshBalanceThunk()));
   };
   return (
     <Formik
