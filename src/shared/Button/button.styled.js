@@ -48,6 +48,24 @@ export const ButtonStyle = styled.button`
       color: #623f8b;
     }
   }
+  &.cancel {
+    width: 280px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 20px;
+    padding: 5px 10px;
+    margin: 10px 15px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 27px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #ffffff;
+  }
 `;
 
 //----------Стиль ссылки под белую кнопку------//

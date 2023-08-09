@@ -36,6 +36,7 @@ export const Logo = styled.img`
 
 export const LogoName = styled.span`
     color: #FBFBFB;
+
     font-size: 17.097px;
 `;
 
@@ -51,6 +52,7 @@ export const Box = styled.div`
 export const Name = styled.p`
   color: rgba(255, 255, 255, 0.60);
     text-align: right;
+
     font-size: 16px;
     margin-right: 12px;
         @media (max-width: 767px) {

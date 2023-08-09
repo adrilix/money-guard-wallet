@@ -22,6 +22,7 @@ import {
   selectTransactionsCategories,
 } from 'redux/transactionsReduser/transactionsThunks';
 import { object, string, date, bool, mixed, number } from 'yup';
+import Button from 'shared/Button/Button';
 
 const ModalAddTransaction = ({ closeModal }) => {
   const [isChecked, setIsChecked] = useState(false);
@@ -157,7 +158,9 @@ const ModalAddTransaction = ({ closeModal }) => {
             />
             <ErrorText name="comment" component="div" />
           </InputWrapper>
-          <button type="submit">Add</button>
+          <Button variant="login" type="submit">
+            Add
+          </Button>
           <button type="button" onClick={() => closeModal()}>
             Cancel
           </button>
