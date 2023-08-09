@@ -1,12 +1,9 @@
 import React, { useEffect } from 'react';
 import { createPortal } from 'react-dom';
-import {
-  Button,
-  ButtonWrapper,
-  ModalBackdrop,
-  ModalContent,
-  Title,
-} from './LogOutModal.Styled';
+
+import { BoxLogo, Button, ButtonCancel, ButtonLogOut, ButtonWrapper, Logo, LogoTitle, ModalBackdrop, ModalContent, Title } from './LogOutModal.Styled';
+import logo from '../../svg/logo.svg';
+import { Box } from 'Page/SummaryPage/SummaruPage.styled';
 
 export const LogOutModal = ({ showIt, setShowIt, handleLogOut }) => {
   useEffect(() => {
@@ -30,16 +27,21 @@ export const LogOutModal = ({ showIt, setShowIt, handleLogOut }) => {
     showIt && (
       <>
         <ModalBackdrop onClick={hideLogOutModal} />
-        <ModalContent>
+
+      <ModalContent>
+        <ButtonWrapper>
+          <Logo src={logo} alt="logo" />
+        <LogoTitle>Money Guard</LogoTitle>
           <Title>Are you sure you want to log out?</Title>
-          <ButtonWrapper>
-            <Button type="button" onClick={handleLogOut}>
-              LOG OUT
-            </Button>
-            <Button type="button" onClick={hideLogOutModal}>
-              CANCEL
-            </Button>
-          </ButtonWrapper>
+        
+              
+          <ButtonLogOut type="button" onClick={handleLogOut}>
+            Logout
+          </ButtonLogOut>
+          <ButtonCancel type="button" onClick={handleClose}>
+            Cansel
+          </ButtonCancel>
+            </ButtonWrapper>
         </ModalContent>
       </>
     ),

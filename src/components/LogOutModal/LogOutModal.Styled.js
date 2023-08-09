@@ -1,4 +1,23 @@
 import styled from 'styled-components';
+import bgimg from '../../svg/Rectangle4.png'
+
+export const LogoTitle = styled.h2`
+color: #FBFBFB;
+font-family: Poppins;
+font-size: 26.963px;
+margin-top:0;
+    @media (max-width: 767px) {
+      display: none
+  }
+`
+
+export const Logo = styled.img`
+  width: 36px;
+  height: 36px;
+    @media (max-width: 767px) {
+      display: none
+  }
+  `;
 
 export const ModalBackdrop = styled.div`
   position: fixed;
@@ -6,8 +25,9 @@ export const ModalBackdrop = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  z-index: 999;
+ background: rgba(34, 13, 91, 0.23);
+backdrop-filter: blur(3.5px);
+  z-index: 10;
 `;
 
 export const ModalContent = styled.div`
@@ -15,49 +35,98 @@ export const ModalContent = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 20px;
+  padding: 60px;
   z-index: 1000;
-  background-color: #4d2367;
-  border-radius: 20px;
+
+  background-image: url(${bgimg});
+  border-radius: 8px;
+  align-items: center;
+  width: 533px;
+  height: 447px;
 `;
 
-export const Title = styled.h2`
-  color: var(--white, #fbfbfb);
-  text-align: center;
-  /* font-family: Poppins; */
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
+export const Title = styled.p`
+color: #FFF;
+font-family: Poppins;
+font-size: 18px;
+margin-top:52px;
+    @media (max-width: 767px) {
+     width:200px;
+     text-align: center;
+  }
 `;
 
 export const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 10px;
+  margin-top:60px;
+   @media (max-width: 767px) {
+  margin: auto;    
+  }
 `;
 
-export const Button = styled.button`
+export const ButtonLogOut = styled.button`
   border: none;
-  padding: 10px 20px;
-  border-radius: 20px;
-  /* font-family: Poppins; */
-  font-size: 18px;
-  font-weight: 600;
-  cursor: pointer;
-  box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
 
-  &:hover {
-    background-color: var(--button-hover-color, rgb(67 68 156));
-    color: var(--white, #fbfbfb);
+border-radius: 20px;
+background: var(--button-gradient, linear-gradient(167deg, #FFC727 0%, #9E40BA 61.46%, #7000FF 90.54%));
+box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.20);
+color: #FFF;
+text-align: center;
+font-family: Poppins;
+font-size: 18px;
+letter-spacing: 1.8px;
+text-transform: uppercase;
+width: 300px;
+height: 50px;
+margin-top:52px;
+
+    &:hover {
+    color: var(--white, #FBFBFB);
+
     transform: scale(1.05);
   }
 
   &:focus {
     outline: none;
-    background-color: var(--button-hover-color, rgb(67 68 156));
-    color: var(--white, #fbfbfb);
+
     transform: scale(1.05);
   }
+
+  @media (max-width: 767px) {
+      width: 280px;
+height: 50px;
+  }
 `;
+
+export const ButtonCancel = styled.button`
+border:none;
+border-radius: 20px;
+background: #FCFCFC;
+box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.20);
+color: #623F8B;
+text-align: center;
+font-family: Poppins;
+font-size: 18px;
+letter-spacing: 1.8px;
+text-transform: uppercase;
+width: 300px;
+height: 50px;
+margin-top:20px;
+
+    &:hover {
+    transform: scale(1.05);
+  }
+
+  &:focus {
+    outline: none;
+    transform: scale(1.05);
+  }
+
+    @media (max-width: 767px) {
+      width: 280px;
+height: 50px;
+  }
+
+

@@ -12,75 +12,65 @@ import {
   InputWrapper,
   TransactionTypeDiv,
   TwoColumnRow,
-  placeholderStyles,
 } from './ModalAddTransactionStyled';
-import CategorySelect from 'components/CategorySelect/CategorySelect';
+
 import DatetimePicker from 'components/DatetimePicker/DatetimePicker';
 import { CiCalendarDate } from 'react-icons/ci';
 import Textarea from 'components/TextArea/TextArea';
-import { useDispatch, useSelector } from 'react-redux';
-import { patchTransactionsThunk } from 'redux/transactionsReduser/transactionsThunks';
-import { object, string, date, bool, mixed, number } from 'yup';
-import { customStyles } from 'components/CategorySelect/CategorySelectStyled';
+import { useDispatch } from 'react-redux';
+import {
+  getTransactionsThunk,
+  patchTransactionsThunk,
+} from 'redux/transactionsReduser/transactionsThunks';
+import { object, string, date, number } from 'yup';
 
-const options = [
-  { value: 'main expenses', label: 'Main expenses' },
-  { value: 'products', label: 'Products' },
-  { value: 'car', label: 'Car' },
-  { value: 'self care', label: 'Self care' },
-  { value: 'child care', label: 'Child care' },
-  { value: 'household products', label: 'Household products' },
-  { value: 'education', label: 'Education' },
-  { value: 'leisure', label: 'Leisure' },
-  { value: 'other expenses', label: 'Other expenses' },
-  { value: 'entertainment', label: 'Entertainment' },
-];
-
-const ModalEdit = ({ closeModal }) => {
-  const dispatch = useDispatch();
-  const selectedTransactionEdit = useSelector(
-    state => state.transactions.transactions
-  );
-
-  const formatDate = inputString => {
-    const date = moment(inputString, 'DD MM YYYY HH:mm:ss GMTZZ');
-    const formattedDate = date.format('DD.MM.YYYY');
-    return formattedDate;
+const ModalEdit = ({ closeModal, item }) => {
+  const categoryNames = {
+    'c9d9e447-1b83-4238-8712-edc77b18b739': 'Main expenses',
+    '27eb4b75-9a42-4991-a802-4aefe21ac3ce': 'Products',
+    '3caa7ba0-79c0-40b9-ae1f-de1af1f6e386': 'Car',
+    'bbdd58b8-e804-4ab9-bf4f-695da5ef64f4': 'Self care',
+    '76cc875a-3b43-4eae-8fdb-f76633821a34': 'Child care',
+    '128673b5-2f9a-46ae-a428-ec48cf1effa1': 'Household products',
+    '1272fcc4-d59f-462d-ad33-a85a075e5581': 'Education',
+    'c143130f-7d1e-4011-90a4-54766d4e308e': 'Leisure',
+    '719626f1-9d23-4e99-84f5-289024e437a8': 'Other expenses',
+    '3acd0ecd-5295-4d54-8e7c-d3908f4d0402': 'Entertainment',
+    '063f1132-ba5d-42b4-951d-44011ca46262': 'Income',
   };
+  const dispatch = useDispatch();
+  const isExpense = item.type === 'EXPENSE';
+
   const dateTransformer = (_, originalValue) => {
     const parsedDate = moment(originalValue, 'DD.MM.YYYY');
     return parsedDate.isValid() ? parsedDate.toDate() : new Date('');
   };
   const handleSubmit = values => {
-    dispatch(
-      patchTransactionsThunk({
-        id: selectedTransactionEdit._id,
-        updatedData: {
-          amount: values.value,
-          comment: values.comment,
-          date: values.date,
-          category: values.category.label,
-          isIncome: selectedTransactionEdit.isIncome,
-        },
-      })
-    );
+    console.log(values);
+    const data = {
+      id: item.id,
+      updatedData: {
+        transactionDate: new Date(values.date),
+        type: item.type,
+        categoryId: values.category.categoryId,
+        comment: values.comment,
+        amount: !isExpense ? Number(values.value) : Number(-values.value),
+      },
+    };
+    dispatch(patchTransactionsThunk(data))
+      .unwrap()
+      .then(() => dispatch(getTransactionsThunk()));
   };
   return (
     <Formik
       initialValues={{
-        type: selectedTransactionEdit.isIncome,
-        category: selectedTransactionEdit.category,
-        value: selectedTransactionEdit.amount,
-        date: `${formatDate(selectedTransactionEdit.date)}`,
-        comment: selectedTransactionEdit.comment,
+        date: new Date(item.transactionDate),
+        type: item.type,
+        category: item.categoryId,
+        comment: item.comment,
+        value: Math.abs(item.amount),
       }}
       validationSchema={object({
-        type: bool(),
-        category: mixed().when('type', {
-          is: type => !type,
-          then: () => mixed().required('Please choose transaction category.'),
-          otherwise: () => mixed().notRequired(),
-        }),
         value: number()
           .typeError('Transaction value must be a number')
           .test(
@@ -107,22 +97,20 @@ const ModalEdit = ({ closeModal }) => {
         <FormikForm>
           <Heading>Edit transaction</Heading>
           <TransactionTypeDiv>
-            <IncomeSpan>Income</IncomeSpan>
-            <ExpenseSpan>Expense</ExpenseSpan>
+            <IncomeSpan $active={item.type === 'INCOME'}>Income</IncomeSpan>
+            <span>&frasl;</span>
+            <ExpenseSpan $active={item.type === 'EXPENSE'}>Expense</ExpenseSpan>
           </TransactionTypeDiv>
-
-          <InputWrapper>
-            <CategorySelect
-              value={values.category}
-              placeholder={selectedTransactionEdit.category}
-              name="category"
-              onChange={category => setFieldValue('category', category)}
-              options={options}
-              styles={{ ...customStyles, ...placeholderStyles }}
-            />
-            <ErrorText name="category" component="div" />
-          </InputWrapper>
-
+          {isExpense && (
+            <InputWrapper>
+              <Textarea
+                name="category"
+                autoComplete="off"
+                value={categoryNames[item.categoryId]}
+                readonly
+              />
+            </InputWrapper>
+          )}
           <TwoColumnRow>
             <InputWrapper>
               <BaseInput
@@ -148,7 +136,6 @@ const ModalEdit = ({ closeModal }) => {
               <CiCalendarDate />
             </CalendarWrapper>
           </TwoColumnRow>
-
           <InputWrapper>
             <Textarea
               placeholder="Comment"
