@@ -1,7 +1,5 @@
 import { useMediaQuery } from 'react-responsive';
-import { NavLink } from 'react-router-dom';
 import {
-  StyledNavLinkMob,
   StyledNavList,
   StyledNavListMob,
   ActiveNavLink,
