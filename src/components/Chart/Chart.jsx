@@ -7,24 +7,15 @@ import {
 } from 'chart.js'
 import { Doughnut } from 'react-chartjs-2';
 import { Diagramm, Total } from './ChartStyled';
-import lepr from '../../svg/lepr-re.png'
+import lepr from '../../svg/statisticNull.png'
 import {colorStatistics } from '../../Page/SummaryPage/colorStatistic'
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-function randomColor() {
-  const letters = '0123456789ABCDEF';
-  let color = '#';
-  for (let i = 0; i < 6; i++) {
-    color += letters[Math.floor(Math.random() * 16)];
-  }
-  return color;
-}
-
 const ChartComponent = ({ data }) => {
   if (!data || !data.categoriesSummary || data.categoriesSummary.length === 0) {
 
-    return <img src={lepr} width={270}/>;
+    return <img alt="no transaction" src={lepr} width={270}/>;
   }
 
  const income = data.incomeSummary;

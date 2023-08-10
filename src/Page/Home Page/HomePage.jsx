@@ -7,8 +7,9 @@ import {
   getTransactionsThunk,
 } from 'redux/transactionsReduser/transactionsThunks';
 import { useDispatch } from 'react-redux';
-import { Balance } from 'components/Balance/Balance';
+
 import { useMediaQuery } from 'react-responsive';
+import { Balance } from 'components/Balance/Balance';
 
 const HomePage = () => {
   const dispatch = useDispatch();
@@ -37,13 +38,16 @@ const HomePage = () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  const isMobile = useMediaQuery({ maxWidth: 767 });
   return (
     <div>
-      
+
       <BoxTableList>
         {isMobile && <Balance />}
         <>{windowWidth >= adaptiveSize ? <Table /> : <SmallTable />}</>
       </BoxTableList>
+
     </div>
   );
 };

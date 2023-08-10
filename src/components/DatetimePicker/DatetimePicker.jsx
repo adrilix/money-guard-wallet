@@ -16,8 +16,9 @@ const DatetimePicker = ({ ...props }) => {
         readOnly: true,
       }}
       selected={field.value}
+      closeOnSelect={true}
       onChange={value => {
-        helpers.setValue(moment(value).format('DD.MM.YYYY'));
+        helpers.setValue(moment(value));
       }}
     />
   );

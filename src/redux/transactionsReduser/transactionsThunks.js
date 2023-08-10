@@ -71,7 +71,6 @@ export const addTransactionsThunk = createAsyncThunk(
   'transactions/addTransactionsThunk',
   async (formData, { rejectWithValue }) => {
     try {
-      console.log(formData);
       const newTransaction = await addTransactionsRequest(formData);
       notifySuc('Transaction completed successfully!');
       return newTransaction;

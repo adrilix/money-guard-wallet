@@ -7,48 +7,57 @@ export const FormikForm = styled(Form)`
   align-items: center;
   justify-content: center;
   row-gap: 40px;
+  padding: 32px 20px;
 `;
 export const Heading = styled.h3`
-  color: #000;
+  color: var(--white, #fbfbfb);
   text-align: center;
   font-family: Poppins;
   font-size: 30px;
   font-weight: 400;
   margin: 0;
+
+  @media (max-width: 767px) {
+    font-size: 24px;
+  }
 `;
 export const TransactionTypeDiv = styled.div`
   display: flex;
-  gap: 10px;
+  gap: 12px;
   align-items: center;
   span {
-    font-family: Circe;
-    font-weight: 700;
+    font-weight: 600;
     font-size: 16px;
+  }
+  svg {
+    width: 15px;
+    height: 15px;
+    color: rgba(255, 255, 255, 0.4);
   }
 `;
 
 export const IncomeSpan = styled.span`
-  color: ${props => (props.$active ? '#24cca8' : '#bdbdbd')};
+  color: ${props => (props.$active ? '#FFB627' : '#FFFFFF99')};
 `;
 export const ExpenseSpan = styled.span`
-  color: ${props => (props.$active ? '#ff6596' : '#bdbdbd')};
+  color: ${props => (props.$active ? '#FF868D' : '#FFFFFF99')};
 `;
 
 export const BaseInput = styled.input`
   border: none;
-  border-bottom: 1px solid #e0e0e0;
-  font-family: Circe;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   font-size: 18px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 600;
   line-height: 1.33;
-  color: #000;
+  color: #fbfbfb;
+  background-color: transparent;
   max-width: 100%;
   margin-bottom: 10px;
   width: 280px;
 
   &::placeholder {
-    color: #bdbdbd;
+    color: #fbfbfb;
   }
 
   &:focus {
@@ -59,7 +68,7 @@ export const BaseInput = styled.input`
     outline: none;
 
     + svg {
-      fill: #4a56e2;
+      fill: #fbfbfb;
       transition: fill 150ms;
     }
   }
@@ -70,7 +79,7 @@ export const BaseInput = styled.input`
     position: absolute;
     left: 10px;
     top: -1px;
-    fill: #e0e0e0;
+    fill: #fbfbfb;
     transition: fill 150ms;
   }
 
@@ -114,9 +123,8 @@ export const TwoColumnRow = styled.div`
   }
 
   & > :first-child input {
-    font-family: Circe;
     font-size: 18px;
-    font-weight: 700;
+    font-weight: 400;
     text-align: center;
     margin-bottom: 3px;
     outline: none;
@@ -145,7 +153,7 @@ export const CalendarWrapper = styled.div`
     right: 14px;
     width: 24px;
     height: 24px;
-    fill: #4a56e2;
+    fill: #734aef;
   }
 
   @media (max-width: 767px) {

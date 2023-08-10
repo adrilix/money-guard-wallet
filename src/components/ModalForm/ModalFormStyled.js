@@ -9,32 +9,40 @@ export const ModalBackdrop = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #00000040;
+  background: rgba(34, 13, 91, 0.23);
+  backdrop-filter: blur(3.5px);
   transition: opacity 500ms ease-in-out, visibility 500ms ease-in-out;
   opacity: 1;
   visibility: visible;
-
+  padding: 15px;
   z-index: 1000;
+
+  .category {
+    top: 44px;
+  }
+
+  @media (max-width: 767px) {
+    padding: 0px;
+  }
 `;
 export const ModalContent = styled.div`
-  min-width: 64px;
-  padding: 40px 73px;
+  height: 540px;
+  width: 511px;
+  padding: 41px 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #ffff;
-  background-color: #fcfcfc;
-  border-radius: 12px;
+  background: radial-gradient(#3f2e96, #5f478c);
+  border-radius: 8px;
   position: relative;
-  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.034), 0 7px 5px rgba(0, 0, 0, 0.048),
-    0 12px 10px rgba(0, 0, 0, 0.06), 0 22px 18px rgba(0, 0, 0, 0.072),
-    0 42px 33px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 4px 60px 0px rgba(0, 0, 0, 0.25);
+
   @media (max-width: 767px) {
     width: 100%;
     height: 100%;
     border-radius: 0px;
-    padding: 20px;
+    padding: calc(20 * (100vw / 480));
     min-width: 300px;
   }
 `;
@@ -50,12 +58,22 @@ export const ButtonIcon = styled.button`
   margin: 0;
   padding: 0;
   cursor: pointer;
+
+  & svg {
+    color: #fbfbfb;
+    width: 20px;
+    height: 20px;
+    position: relative;
+  }
+
   :hover,
   :focus {
     outline: none;
     border: none;
   }
   @media (max-width: 767px) {
-    display: none;
+    & svg {
+      display: none;
+    }
   }
 `;

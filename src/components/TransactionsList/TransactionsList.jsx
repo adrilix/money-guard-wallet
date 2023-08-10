@@ -7,7 +7,6 @@ import { colorStatistics } from 'Page/SummaryPage/colorStatistic'
 
 const StatisticsTable = ({ transaction }) => {
    if (!transaction || !transaction.categoriesSummary || transaction.categoriesSummary.length === 0) {
-console.log(transaction)
     return null;
   }
   

@@ -2,9 +2,9 @@
 import styled from 'styled-components';
 
 export const Total = styled.div`
-  
- 
+
   color: var(--white, #fbfbfb);
+
   font-style: normal;
   line-height: normal;
   position: absolute;
@@ -47,6 +47,7 @@ export const Diagramm = styled.div`
     min-width: 336px;
     }
        @media (max-width: 767px) {
+       
         padding-bottom: 32px;
     min-height: 240px;
     max-height: 440px;
@@ -54,6 +55,7 @@ export const Diagramm = styled.div`
     min-width: 240px;
     max-width: 440px;
     width: 100%;
+
   }
   canvas {
     width: 100% !important;

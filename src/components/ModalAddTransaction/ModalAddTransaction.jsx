@@ -45,7 +45,6 @@ const ModalAddTransaction = ({ closeModal }) => {
   };
 
   const handleSubmit = values => {
-    console.log(values);
     const data = {
       transactionDate: new Date(values.date),
       type: isChecked ? 'INCOME' : 'EXPENSE',
@@ -55,6 +54,8 @@ const ModalAddTransaction = ({ closeModal }) => {
       amount: isChecked ? Number(values.value) : Number(-values.value),
     };
     dispatch(addTransactionsThunk(data))
+      // .unwrap()
+      // .then(() => dispatch(getTransactionsThunk()));
   };
 
   return (
@@ -155,12 +156,17 @@ const ModalAddTransaction = ({ closeModal }) => {
             />
             <ErrorText name="comment" component="div" />
           </InputWrapper>
-          <Button variant="login" type="submit">
+          <Button type="submit" variant="registration">
             Add
           </Button>
-          <button type="button" onClick={() => closeModal()}>
+          <Button
+            type="button"
+            variant="cancel"
+            style={{ marginBottom: 0, marginTop: '-40px' }}
+            onClick={() => closeModal()}
+          >
             Cancel
-          </button>
+          </Button>
         </FormikForm>
       )}
     </Formik>

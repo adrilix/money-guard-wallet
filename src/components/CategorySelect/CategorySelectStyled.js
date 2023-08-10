@@ -20,33 +20,38 @@ export const customStyles = {
     backgroundColor: 'transparent',
     minHeight: '20px',
     border: 'none',
-    borderBottom: '1px solid #e0e0e0',
+    borderBottom: '1px solid #ffffff66',
     borderRadius: '0',
     boxShadow: 'none',
+
     alignItems: 'flex-end',
     cursor: 'pointer',
-    '&:hover': { borderBottom: '1px solid #e0e0e0' },
+    '&:hover': { borderBottom: '1px solid #ffffff66' },
 
-    // '@media only screen and (max-width: 767px)': {
-    //   paddingLeft: '20px',
-    // },
+    '@media only screen and (max-width: 767px)': {
+      paddingLeft: '20px',
+    },
   }),
   option: (provided, { isFocused }) => ({
     ...provided,
     cursor: 'pointer',
-    backgroundColor: isFocused && '#ffffff',
-    color: isFocused ? '#ff6596' : 'black',
+    backgroundColor: isFocused
+      ? 'var(--form-color, rgba(255, 255, 255, 0.10))'
+      : 'transparent',
+    color: isFocused ? 'var(--dashboard-text, #FF868D)' : '#FBFBFB',
     '&:hover': {
-      backgroundColor: isFocused && '#ffffff',
-      color: isFocused ? '#ff6596' : 'black',
+      backgroundColor: isFocused
+        ? 'var(--form-color, rgba(255, 255, 255, 0.10))'
+        : 'transparent',
+      color: isFocused ? 'var(--dashboard-text, #FF868D)' : '#FBFBFB',
     },
     padding: '10px 20px',
   }),
   menu: provided => ({
     ...provided,
-    borderRadius: '20px',
-    backgroundColor: '#0000001a',
-    boxShadow: '0px 6px 15px 0px #0000001a',
+    borderRadius: '8px',
+    background: 'rgba(88, 62, 155, 0.8)',
+    boxShadow: '0px 4px 60px 0px rgba(0, 0, 0, 0.25)',
     backdropFilter: 'blur(9px)',
     overflow: 'hidden',
     marginTop: '1px',
@@ -55,7 +60,7 @@ export const customStyles = {
     ...provided,
 
     '&::-webkit-scrollbar': {
-      width: '4px',
+      width: '2px',
     },
 
     '&::-webkit-scrollbar-track': {
@@ -100,6 +105,7 @@ export const customStyles = {
     ...provided,
     paddingLeft: '8px',
     paddingBottom: '2px',
+    color: '#FBFBFB',
     '@media only screen and (max-width: 767px)': {
       paddingLeft: '0px',
       margin: '0px',
