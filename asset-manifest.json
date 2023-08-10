@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/money-guard-wallet/static/css/main.985be1dc.css",
-    "main.js": "/money-guard-wallet/static/js/main.c990b560.js",
+    "main.js": "/money-guard-wallet/static/js/main.387b04c6.js",
     "static/css/150.1f3b52bb.chunk.css": "/money-guard-wallet/static/css/150.1f3b52bb.chunk.css",
     "static/js/150.095811b3.chunk.js": "/money-guard-wallet/static/js/150.095811b3.chunk.js",
     "static/css/127.1f3b52bb.chunk.css": "/money-guard-wallet/static/css/127.1f3b52bb.chunk.css",
@@ -9,7 +9,7 @@
     "static/js/237.132afff3.chunk.js": "/money-guard-wallet/static/js/237.132afff3.chunk.js",
     "static/js/529.92447c4d.chunk.js": "/money-guard-wallet/static/js/529.92447c4d.chunk.js",
     "static/js/268.01480645.chunk.js": "/money-guard-wallet/static/js/268.01480645.chunk.js",
-    "static/js/153.b899dd1c.chunk.js": "/money-guard-wallet/static/js/153.b899dd1c.chunk.js",
+    "static/js/153.b22197bc.chunk.js": "/money-guard-wallet/static/js/153.b22197bc.chunk.js",
     "static/js/856.50b88720.chunk.js": "/money-guard-wallet/static/js/856.50b88720.chunk.js",
     "static/js/569.ccda6398.chunk.js": "/money-guard-wallet/static/js/569.ccda6398.chunk.js",
     "static/js/266.3d84e6af.chunk.js": "/money-guard-wallet/static/js/266.3d84e6af.chunk.js",
@@ -27,7 +27,7 @@
     "index.html": "/money-guard-wallet/index.html",
     "static/media/exit.svg": "/money-guard-wallet/static/media/exit.f0f10f348491ac574a193b6e68ff1df0.svg",
     "main.985be1dc.css.map": "/money-guard-wallet/static/css/main.985be1dc.css.map",
-    "main.c990b560.js.map": "/money-guard-wallet/static/js/main.c990b560.js.map",
+    "main.387b04c6.js.map": "/money-guard-wallet/static/js/main.387b04c6.js.map",
     "150.1f3b52bb.chunk.css.map": "/money-guard-wallet/static/css/150.1f3b52bb.chunk.css.map",
     "150.095811b3.chunk.js.map": "/money-guard-wallet/static/js/150.095811b3.chunk.js.map",
     "127.1f3b52bb.chunk.css.map": "/money-guard-wallet/static/css/127.1f3b52bb.chunk.css.map",
@@ -35,13 +35,13 @@
     "237.132afff3.chunk.js.map": "/money-guard-wallet/static/js/237.132afff3.chunk.js.map",
     "529.92447c4d.chunk.js.map": "/money-guard-wallet/static/js/529.92447c4d.chunk.js.map",
     "268.01480645.chunk.js.map": "/money-guard-wallet/static/js/268.01480645.chunk.js.map",
-    "153.b899dd1c.chunk.js.map": "/money-guard-wallet/static/js/153.b899dd1c.chunk.js.map",
+    "153.b22197bc.chunk.js.map": "/money-guard-wallet/static/js/153.b22197bc.chunk.js.map",
     "856.50b88720.chunk.js.map": "/money-guard-wallet/static/js/856.50b88720.chunk.js.map",
     "569.ccda6398.chunk.js.map": "/money-guard-wallet/static/js/569.ccda6398.chunk.js.map",
     "266.3d84e6af.chunk.js.map": "/money-guard-wallet/static/js/266.3d84e6af.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.985be1dc.css",
-    "static/js/main.c990b560.js"
+    "static/js/main.387b04c6.js"
   ]
 }
