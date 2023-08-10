@@ -7,7 +7,7 @@ import {
 } from 'chart.js'
 import { Doughnut } from 'react-chartjs-2';
 import { Diagramm, Total } from './ChartStyled';
-import lepr from '../../svg/lepr-re.png'
+import lepr from '../../svg/statisticNull.png'
 import {colorStatistics } from '../../Page/SummaryPage/colorStatistic'
 
 ChartJS.register(ArcElement, Tooltip, Legend);
