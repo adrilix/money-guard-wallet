@@ -7,12 +7,13 @@ import {
   getTransactionsThunk,
 } from 'redux/transactionsReduser/transactionsThunks';
 import { useDispatch } from 'react-redux';
+
 import { useMediaQuery } from 'react-responsive';
 import { Balance } from 'components/Balance/Balance';
 
 const HomePage = () => {
   const dispatch = useDispatch();
-
+  const isMobile = useMediaQuery({ maxWidth: 767})
   // useEffect(() => {
   //   if (isLogin) return;
   //   dispatch(refreshAuthThunk());

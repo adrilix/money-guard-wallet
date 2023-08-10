@@ -17,7 +17,7 @@ export const StyledTable = styled.div`
 `;
 
 export const StyledTableHead = styled.div`
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(82, 59, 126, 0.60);
   padding-left: ${props => props.padL || '62px'};
   margin-bottom: ${props => props.marB || '24px'};
 `;

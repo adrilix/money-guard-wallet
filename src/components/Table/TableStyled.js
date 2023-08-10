@@ -24,6 +24,9 @@ export const TableListContainer = styled.div`
     li:not(:last-child) {
         margin-bottom: 8px;
     }
+     li:last-child {
+        padding-bottom: 60px;
+    }
 `;
 
 export const StyledTable = styled.table`
@@ -43,7 +46,18 @@ margin: 0;
     align-items: flex-end;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.10);
-
+    position: relative;
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 1px;
+      height: 100%;
+      width: 7px;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+      background-color: ${props => (props.type ? '#FFB627' : '#FF868D')};
+    }
     th {
       padding: 12px 0 12px 20px;
     }
@@ -89,7 +103,7 @@ line-height: normal;
   @media screen and (min-width: 768px) {
   border-radius: 8px;
   tr th {
-  background-color: rgba(82, 59, 126, 1);
+  background-color: #4C3579;
   backdrop-filter: blur(50px);
   position: sticky;
   top: 0;
@@ -177,6 +191,11 @@ export const TdSvg = styled(Td)`
     }
 `;
 
+export const TdEdit = styled(Td)`
+    display: flex;
+    align-items: center;
+`;
+
 export const TdDate = styled(Td)`
     padding-left: 20px;
 
@@ -217,9 +236,19 @@ display: flex;
 
 export const BtnRightCorner = styled.div`
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+
   z-index: 10;
+  @media screen and (max-width: 767px) {
+    right: 20px;
+    bottom: 20px;
+  }
+
+   @media screen and (min-width: 768px) {
+    right: 40px;
+    bottom: 40px;
+  }
+
+
 `;
 
 export const EditBtn = styled(CommonBtnStyles)`

@@ -91,5 +91,33 @@ export const StyledNavLinkMob = styled(NavLink)`
         fill: rgba(115, 74, 239, 1);
       }
     }
+
   }
+`;
+
+export const ActiveNavLink = styled(StyledNavLink)`
+  &.active{
+        svg {
+      filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
+      background-color: rgba(255, 255, 255, 1);
+      path {
+        fill: #4a56e2;
+        fill-opacity: 1;
+      }
+      }
+
+    }
+`;
+
+export const ActiveNavLinkMob = styled(StyledNavLinkMob)`
+    &.active{
+        svg {
+      filter: drop-shadow(0px 3px 10px rgba(74, 86, 226, 0.5));
+      background-color: rgba(255, 255, 255, 1);
+      path {
+        fill: rgba(115, 74, 239, 1);
+      }
+      }
+
+    }
 `;
