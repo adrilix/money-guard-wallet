@@ -46,7 +46,6 @@ const ModalAddTransaction = ({ closeModal }) => {
   };
 
   const handleSubmit = values => {
-    console.log(values);
     const data = {
       transactionDate: new Date(values.date),
       type: isChecked ? 'INCOME' : 'EXPENSE',

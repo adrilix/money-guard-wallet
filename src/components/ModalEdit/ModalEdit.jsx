@@ -49,7 +49,6 @@ const ModalEdit = ({ closeModal, item }) => {
     return parsedDate.isValid() ? parsedDate.toDate() : new Date('');
   };
   const handleSubmit = values => {
-    console.log(values);
     const data = {
       id: item.id,
       updatedData: {
