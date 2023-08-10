@@ -2,15 +2,33 @@
 import styled from 'styled-components';
 
 export const Total = styled.div`
-  font-size: calc(14px + (100vw - 288px) * 0.01);
-  font-weight: 700;
+  
+ 
   color: var(--white, #fbfbfb);
   font-style: normal;
   line-height: normal;
   position: absolute;
-  top: 50%;
-  left: 50%;
   transform: translate(-50%, -50%);
+   @media (max-width: 767px) {
+    font-size: 18px;
+     font-weight: 600;
+       top: 46%;
+      left: 50%;
+
+   }
+   @media (min-width: 768px) and (max-width: 1279px) {
+    font-size: 20px;
+     font-weight: 700;
+       top: 50%;
+  left: 50%;
+
+   }
+  @media screen and (min-width: 1280px) {
+      font-size: 18px;
+             top: 50%;
+    left: 50%;
+    }
+
 `;
 export const Diagramm = styled.div`
   display: flex;
@@ -24,26 +42,35 @@ export const Diagramm = styled.div`
   flex: 1 1;
   align-self: start;
   justify-self: start;
-      @media (max-width: 1023px) {
+      @media (max-width: 1279px) {
        min-height: 336px;
     min-width: 336px;
     }
        @media (max-width: 767px) {
-    min-height: 280px;
-    min-width: 280px;
+        padding-bottom: 32px;
+    min-height: 240px;
+    max-height: 440px;
+    height: 100%;
+    min-width: 240px;
+    max-width: 440px;
+    width: 100%;
   }
   canvas {
     width: 100% !important;
     height: 100% !important;
     max-width: 288px;
     max-height: 288px;
-    @media (max-width: 1023px) {
+    @media (max-width: 1279px) {
        min-height: 336px;
     min-width: 336px;
     }
        @media (max-width: 767px) {
-    min-height: 280px;
-    min-width: 280px;
+    min-height: 240px;
+    max-height: 440px;
+    height: 100%;
+    min-width: 240px;
+     max-width: 440px;
+    width: 100%;
   }
   }
 

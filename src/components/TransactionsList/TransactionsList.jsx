@@ -1,47 +1,51 @@
 import React from "react";
-import { Section, StyledTable, Thead, ThSum, ThCategory, TdSum, TdCategory, Transaction, Total } from "./TransactionsListStyled";
+import { Section, StyledTable, Thead, ThSum, ThCategory, TdColor, TdSum, TdCategory, Transaction, Total } from "./TransactionsListStyled";
+
 import { nanoid } from 'nanoid';
+import { colorStatistics } from 'Page/SummaryPage/colorStatistic'
 
 
 const StatisticsTable = ({ transaction }) => {
-    // const categoryColors = {};
    if (!transaction || !transaction.categoriesSummary || transaction.categoriesSummary.length === 0) {
 console.log(transaction)
     return null;
   }
   
     return (
-
-      <Section>
-      <StyledTable>
-        <Thead>
-          <tr>
-            {/* <th>Color</th> */}
-            <ThCategory>Category</ThCategory>
-            <ThSum>Sum</ThSum>
-          </tr>
-        </Thead>
-        <tbody>
-   {transaction.categoriesSummary.map((item) => (
-            <tr key={nanoid()}>
-              {/* <td style={{ backgroundColor: categoryColors[item.categoryId] }}></td> */}
-              <TdCategory>{item.name}</TdCategory>
-              <TdSum>{Math.abs(item.total).toFixed(2)}</TdSum>
-            </tr>
-   ))}
-            <tr>
-              <Transaction>Expenses</Transaction>
-              <Total className="expense">{Math.abs(transaction.expenseSummary).toFixed(2)}</Total>
-            </tr>
-             <tr>
-              <Transaction>Income</Transaction>
-              <Total className="income">{transaction.incomeSummary.toFixed(2)}</Total>
-            </tr>
-        </tbody>
-          </StyledTable>
-        </Section>
-        );
-  };
+<Section>
+       <StyledTable>
+         <Thead>
+           <tr>
+             <ThCategory>Category</ThCategory>
+             <ThSum>Sum</ThSum>
+           </tr>
+         </Thead>
+         <tbody>
+           {transaction.categoriesSummary.map((item) => {
+             const categoryColor = colorStatistics.find(category => category.name === item.name)?.color || ''; // Знаходимо кольору для поточної категорії
+             return (
+               <tr key={nanoid()}>
+                 <TdCategory>
+                   <TdColor categoryColor={categoryColor} />
+                   <span>{item.name}</span>
+                 </TdCategory>
+                 <TdSum>{Math.abs(item.total).toFixed(2)}</TdSum>
+               </tr>
+             );
+           })}
+           <tr>
+             <Transaction>Expenses</Transaction>
+             <Total className="expense">{Math.abs(transaction.expenseSummary).toFixed(2)}</Total>
+           </tr>
+           <tr>
+             <Transaction>Income</Transaction>
+             <Total className="income">{transaction.incomeSummary.toFixed(2)}</Total>
+           </tr>
+         </tbody>
+       </StyledTable>
+     </Section>
+  );
+};
         
 
 // function generateRandomColor() {

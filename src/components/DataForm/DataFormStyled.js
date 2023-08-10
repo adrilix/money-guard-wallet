@@ -2,32 +2,46 @@ import s from 'styled-components'
 
 export const SelectBox = s.div`
     display: flex;
-    gap: 20px;
-    @media (max-width: 1023px) {
-      gap:16px;
-  }
-      @media (max-width: 1023px) {
+
+    @media screen and (max-width: 767px){
       gap:20px;
       flex-direction: column;
+      align-items: center;
+
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1279px){
+      gap: 16px;
+      
+    }
+    @media (min-width: 1280px) {
+      gap: 32px;
+      width: 182px;
   }
   `
 
 export const customSelect = {
   container: (provided) => ({
     ...provided,
-    width: '100%',
+    
     maxHeight: '50px',
-    maxWidth: '182px',
+    
     fontFamily: 'Poppins',
     fontSize: '16px',
     border: '1px solid var(--white-60, rgba(255, 255, 255, 0.60))',
     borderRadius: '8px',
-  '@media (max-width: 1023px)' : {
+    '@media (max-width: 767px)': {
+    maxWidth: '440px',
+      width: '100%',
+  },
+      '@media (min-width: 768px) and (max-width: 1279px)' : {
       maxWidth: '160px',
+    },
+      '@media (min-width: 1280px)' : {
+      maxWidth: '182px',
   },
-      '@media (max-width: 767px)' : {
-      maxWidth: '280px',
-  },
+      
+      
   }),
 
   
@@ -46,11 +60,12 @@ export const customSelect = {
     border: 'none',
     boxShadow: 'none',
     margin: '0',
-      '@media (max-width: 1023px)' : {
+      '@media (max-width: 1279px)' : {
       width: '160px',
     },
-      '@media (max-width: 767px)' : {
-        width: '280px',
+    '@media (max-width: 767px)': {
+      maxWidth: '440px',
+      width: '100%',
   }
       
   }),
