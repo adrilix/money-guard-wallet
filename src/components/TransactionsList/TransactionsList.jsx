@@ -6,7 +6,6 @@ import { nanoid } from 'nanoid';
 const StatisticsTable = ({ transaction }) => {
     // const categoryColors = {};
    if (!transaction || !transaction.categoriesSummary || transaction.categoriesSummary.length === 0) {
-console.log(transaction)
     return null;
   }
   
