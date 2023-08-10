@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkmoney_guard_wallet=self.webpackChunkmoney_guard_wallet||[]).push([[268],{8268:function(n,e,t){t.r(e),t.d(e,{default:function(){return a}});var i,l=t(254),r=t(168),u=t(4313).ZP.div(i||(i=(0,r.Z)(["\n  max-width: 480px;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n"]))),c=t(3329),a=function(){return(0,c.jsx)("div",{children:(0,c.jsx)(u,{children:(0,c.jsx)(l.Z,{})})})}}}]);
-//# sourceMappingURL=268.827fc44f.chunk.js.map
