@@ -28,7 +28,7 @@ const StatisticsTable = ({ transaction }) => {
                    <TdColor categoryColor={categoryColor} />
                    <span>{item.name}</span>
                  </TdCategory>
-                 <TdSum>{Math.abs(item.total).toFixed(2)}</TdSum>
+                 <TdSum>{(item.total).toFixed(2)}</TdSum>
                </tr>
              );
            })}
