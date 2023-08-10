@@ -12,7 +12,7 @@ export const Balance = () => {
   const isMobile = useMediaQuery({ maxWidth: 767 });
   const isTablet = useMediaQuery({ minWidth: 768, maxWidth: 1279 });
   const isDesktop = useMediaQuery({ minWidth: 1280 });
-
+  const isMobile = useMediaQuery({ maxWidth: 767})
   return (
     <div>
       {isDesktop && (
@@ -42,6 +42,17 @@ export const Balance = () => {
             <span>₴ </span>
 
             {balance ? <>{balance.balance}</> : ''}
+          </StyledBalance>
+        </StyledBalanceBox>
+      )}
+      {isMobile && (
+        <StyledBalanceBox maxW="440px" padL="40px" borR="8px" marB="32px">
+          <StyledBalanceLabel>Your balance</StyledBalanceLabel>
+          <StyledBalance>
+            <span>₴ </span>
+
+            {balance ? <>{balance.balance}</> : ""}
+
           </StyledBalance>
         </StyledBalanceBox>
       )}

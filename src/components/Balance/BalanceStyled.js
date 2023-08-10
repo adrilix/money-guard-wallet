@@ -5,7 +5,6 @@ export const StyledBalanceBox = styled.div`
   flex-direction: column;
   gap: 12px;
 
-  width: 100%;
   max-width: ${props => props.maxW || '424px'};
 
   padding-top: 8px;
@@ -19,6 +18,10 @@ export const StyledBalanceBox = styled.div`
 
   /* Button shadow */
   box-shadow: 1px 9px 15px 0px rgba(0, 0, 0, 0.2);
+  @media screen and (min-width: 768px) {
+        width: 100%;
+    
+    }
 `;
 
 export const StyledBalanceLabel = styled.span`
