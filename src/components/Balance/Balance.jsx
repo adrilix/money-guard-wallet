@@ -34,16 +34,7 @@ export const Balance = () => {
           </StyledBalance>
         </StyledBalanceBox>
       )}
-      {isMobile && (
-        <StyledBalanceBox maxW="280px" padL="32px" borR="8px" marB="32px">
-          <StyledBalanceLabel>Your balance</StyledBalanceLabel>
-          <StyledBalance>
-            <span>₴ </span>
-
-            {balance ? <>{balance.balance}</> : ''}
-          </StyledBalance>
-        </StyledBalanceBox>
-      )}
+     
       {isMobile && (
         <StyledBalanceBox maxW="440px" padL="40px" borR="8px" marB="32px">
           <StyledBalanceLabel>Your balance</StyledBalanceLabel>
