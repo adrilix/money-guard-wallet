@@ -14,10 +14,6 @@ import { Balance } from 'components/Balance/Balance';
 const HomePage = () => {
   const dispatch = useDispatch();
   const isMobile = useMediaQuery({ maxWidth: 767})
-  // useEffect(() => {
-  //   if (isLogin) return;
-  //   dispatch(refreshAuthThunk());
-  // }, [dispatch, isLogin]);
 
   useEffect(() => {
     dispatch(getTransactionCategoriesThunk());
