@@ -27,7 +27,8 @@ export const LogOutModal = ({ showIt, setShowIt, handleLogOut }) => {
       document.body.style.overflow = '';
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [ showIt]);
+  }, [showIt]);
+
 
   const handleClose = event => {
     if (event.code === 'Escape' || event.target === event.currentTarget) {
