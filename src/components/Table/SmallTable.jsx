@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Section, TableListContainer, StyledTable, Thead, TdDate, Td, DeleteBtn } from './TableStyled';
+import {  Section, TableListContainer, StyledTable, Thead, TdDate, TdEdit, Td, DeleteBtn } from './TableStyled';
 import { deleteTransactionsThunk, getTransactionsThunk } from 'redux/transactionsReduser/transactionsThunks';
 import AddTransactionModal from 'components/ModalAddTransaction/AddTransactionModal';
 import EditTransactionModal from 'components/ModalEdit/EditTransactionModal';
@@ -54,7 +54,7 @@ const TableList = () => {
             {/* {tableData.slice().reverse().map((item) => ( */}
         {sortedTableData.map((item) => (
           <li key={item.id}>
-             <StyledTable>
+             <StyledTable type={item.type === 'INCOME' ? 1 : 0}>
               <Thead>
                 <tr>
                   <th>Date</th>
@@ -74,9 +74,9 @@ const TableList = () => {
                   <Td>{categoryNames[item.categoryId]}</Td>
                   <Td>{item.comment}</Td>
                   <Td className={item.type === 'INCOME' ? 'income' : 'expense'}>{Math.abs(item.amount).toFixed(2)}</Td>
-                    <Td>
+                    <TdEdit>
                       <EditTransactionModal item={item} />Edit
-                    </Td>
+                    </TdEdit>
                   </tr>
               </tbody>
             </StyledTable>
@@ -85,7 +85,7 @@ const TableList = () => {
           </ul>
           </TableListContainer>
       <div>
-      <AddTransactionModal />
+      <AddTransactionModal/>
           </div>
         </Section>
     </>

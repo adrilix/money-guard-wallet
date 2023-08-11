@@ -2,7 +2,9 @@
   "name": "money-guard-wallet",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://adrilix.github.io/money-guard-wallet/",
+
+  "homepage": "https://adrilix.github.io/money-guard-wallet",
+
   "dependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@redux-devtools/extension": "^3.2.5",
